@@ -3,22 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-/* Modulos do PrimeNG - https://www.primefaces.org/primeng/#/ */
-import {ToolbarModule} from 'primeng/toolbar';
-import {AccordionModule} from 'primeng/accordion';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+/* Modulos de Componentes do Sistema*/
+import { CargoComponent } from './components/cadastros/cargo/cargo.component';
+
+/* Modulos do PrimeNG - https://www.primefaces.org/primeng */
+import { ToolbarModule } from 'primeng/toolbar';
+import { AccordionModule } from 'primeng/accordion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CargoComponent
   ],
 
-  /* Declara os Imports  no imports: []*/
+  /* Declara os Imports no imports: []*/
   imports: [
     BrowserModule,
     ToolbarModule,
     AccordionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    TableModule
   ],
 
   providers: [],
