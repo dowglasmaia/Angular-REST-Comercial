@@ -14,12 +14,14 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { AccordionModule } from 'primeng/accordion';
 import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CargoComponent
+    CargoComponent,
+    CargoDetalheComponent
   ],
 
   /* Declara os Imports no imports: []*/
