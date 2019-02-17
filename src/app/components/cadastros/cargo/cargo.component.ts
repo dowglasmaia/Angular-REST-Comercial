@@ -13,6 +13,10 @@ export class CargoComponent implements OnInit {
 
   cargos: Cargo[];
 
+  cargoSelecionado: Cargo;
+
+  botoesDesabilitado: boolean = true;
+
   constructor(private cargoService: CargoService) { }
 
   ngOnInit() {
@@ -26,7 +30,16 @@ export class CargoComponent implements OnInit {
       { field: 'cbo1994', header: 'CBO 1994' },
       { field: 'cbo2002', header: 'CBD 2002' }
     ];
+  } /* /ngOnInit */
 
+  /* Eventos ao selecionar uma coluna da tabela */
+  onRowSelect(event) {
+    this.botoesDesabilitado = false;
   }
+
+  onRowUnselect(event) {
+    this.botoesDesabilitado = true;
+  }
+ /* /fim */
 
 }

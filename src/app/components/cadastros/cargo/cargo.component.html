@@ -1,20 +1,35 @@
 <!-- https://www.primefaces.org/primeng/#/table -->
 <h3>Cadastro de Cargos</h3>
 
-<p-table [columns]="cols" [value]="cargos">
-    <ng-template pTemplate="header" let-columns>
-        <tr>
-            <th *ngFor="let col of columns">
-                {{col.header}}
-            </th>
-        </tr>
-    </ng-template>
+<p-table [columns]="cols" [value]="cargos" selectionMode="single" [(selection)]="cargoSelecionado" dataKey="id"
+  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
 
-    <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr>
-            <td *ngFor="let col of columns">
-                    {{rowData[col.field]}}
-            </td>
-        </tr>
-    </ng-template>
+  <ng-template pTemplate="caption">
+    <!-- Butões -->
+    <p-button icon="pi pi-plus"> </p-button>
+    <p-button icon="pi pi-search" [disabled]="botoesDesabilitado"> </p-button>
+    <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado"> </p-button>
+  </ng-template>
+
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{rowData[col.field]}}
+      </td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="summary">
+    <div style="text-align: left">
+      Cargo Selecioando:
+    </div>
+  </ng-template>
 </p-table>

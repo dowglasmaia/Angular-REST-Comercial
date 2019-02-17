@@ -10,6 +10,7 @@ import { CargoComponent } from './components/cadastros/cargo/cargo.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { AccordionModule } from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ButtonModule} from 'primeng/button';
 
 import { TableModule } from 'primeng/table';
 
@@ -25,7 +26,8 @@ import { TableModule } from 'primeng/table';
     ToolbarModule,
     AccordionModule,
     BrowserAnimationsModule,
-    TableModule
+    TableModule,
+    ButtonModule
   ],
 
   providers: [],
