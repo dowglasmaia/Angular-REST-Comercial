@@ -1,20 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 
 /* Modulos de Componentes do Sistema*/
 import { CargoComponent } from './components/cadastros/cargo/cargo.component';
+import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
 
-/* Modulos do PrimeNG - https://www.primefaces.org/primeng */
+/* imports dos Modulos do PrimeNG - https://www.primefaces.org/primeng */
 import { ToolbarModule } from 'primeng/toolbar';
 import { AccordionModule } from 'primeng/accordion';
 import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+
+
+
 
 
 @NgModule({
@@ -32,7 +37,11 @@ import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalh
     BrowserAnimationsModule,
     TableModule,
     ButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    InputTextModule,
+    InputTextareaModule,
+    FormsModule, // nesserario para usar o formalario
+
   ],
 
   providers: [],

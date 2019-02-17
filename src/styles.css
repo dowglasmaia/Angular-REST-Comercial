@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* Stilo para os campos de inputtext */
+.ui-inputtext {
+  width: 100%;
+}
+
+
+/* Botões */
+.botoesDetalhes * {
+  padding-left: 0.5em;
+}

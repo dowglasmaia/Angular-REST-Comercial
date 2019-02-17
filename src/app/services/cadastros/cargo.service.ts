@@ -13,7 +13,6 @@ export class CargoService {
     this.cargos = [];
 
     for (let i = 1; i < 16; i++) {
-
       const cargo: Cargo = new Cargo();
       cargo.id = i;
       cargo.nome = 'nome' + i;

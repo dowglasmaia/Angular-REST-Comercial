@@ -1,3 +1,52 @@
-<p>
-  cargo-detalhe works!
-</p>
+<!-- Pagina de Cadastro de Cargos -->
+<h3>Cadastro de Cargos</h3>
+
+<div class="ui-g">
+  <!-- Nome -->
+  <div class="ui-g-12 ui-md-6 ui-lg-6">
+    <span class="ui-float-label">
+      <input id="float-input" type="text" pInputText [(ngModel)]="cargo.nome">
+      <label for="float-input">Nome</label>
+    </span>
+  </div>
+
+  <!-- Salario -->
+  <div class="ui-g-12 ui-md-6 ui-lg-4">
+    <span class="ui-float-label">
+      <input id="float-input" type="text" pInputText [(ngModel)]="cargo.salario">
+      <label for="float-input">Salário</label>
+    </span>
+  </div>
+
+  <!-- 1994 -->
+  <div class="ui-g-12 ui-md-6 ui-lg-3">
+    <span class="ui-float-label">
+      <input id="float-input" type="text" pInputText [(ngModel)]="cargo.cbo1994">
+      <label for="float-input">CBO 1994</label>
+    </span>
+  </div>
+
+  <!-- CBO 2002 -->
+  <div class="ui-g-12 ui-md-6 ui-lg-3">
+    <span class="ui-float-label">
+      <input id="float-input" type="text" pInputText [(ngModel)]="cargo.cbo2002">
+      <label for="float-input">CBO 2002</label>
+    </span>
+  </div>
+
+  <!-- Descrição -->
+  <div class="ui-g-12 ui-md-12 ui-lg-12">
+    <span class="ui-float-label">
+      <textarea id="float-input" [rows]="5" [cols]="30" pInputTextarea autoResize="autoResize" [(ngModel)]="cargo.descricao"></textarea>
+      <label for="float-input">Descrição</label>
+    </span>
+  </div>
+
+  <div class="botoesDetalhes">
+    <!-- Salvar -->
+    <p-button label="Salvar" (onClick)="handleClick($event)"></p-button>
+
+    <!-- Fechar -->
+    <p-button label="Fechar" (onClick)="handleClick($event)"></p-button>
+  </div>
+</div>

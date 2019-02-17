@@ -1,14 +1,16 @@
 <!-- https://www.primefaces.org/primeng/#/table -->
-<h3>Cadastro de Cargos</h3>
+<h3>Listagem de Cargos</h3>
 
 <p-table [columns]="cols" [value]="cargos" selectionMode="single" [(selection)]="cargoSelecionado" dataKey="id"
   (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
 
   <ng-template pTemplate="caption">
     <!-- Butões -->
-    <p-button icon="pi pi-plus"> </p-button>
-    <p-button icon="pi pi-search" [disabled]="botoesDesabilitado"> </p-button>
-    <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado"> </p-button>
+    <div class="botoesDetalhes">
+      <p-button icon="pi pi-plus" [routerLink]="['/cargo/novo']"> </p-button><!-- Novo -->
+      <p-button icon="pi pi-search" [disabled]="botoesDesabilitado"></p-button><!-- Mostra detalhes -->
+      <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado"></p-button><!-- Excluir -->
+    </div>
   </ng-template>
 
   <ng-template pTemplate="header" let-columns>
