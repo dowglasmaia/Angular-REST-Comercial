@@ -3,12 +3,20 @@
 <!-- Header - Cabeçalho -->
   <div class="ui-g-12 ui-md-2">
 
-    <span style="font-size: 32px;">SysComercial</span>
+    <a routerLink="#" style="font-size: 32px;">SysComercial</a>
 
     <p-accordion>
 
       <p-accordionTab header="Cadastros">
-        Content 1
+        <nav>
+          <ul>
+            <li><a routerLink="/cargo">Cargo</a></li>
+            <li><a routerLink="#">2</a></li>
+
+
+          </ul>
+
+        </nav>
       </p-accordionTab>
 
       <p-accordionTab header="Fincanceiro">
@@ -23,31 +31,28 @@
   </div>
 
 
+  <!-- Corpo da Pagina -->
   <div class="ui-g-12 ui-md-10 ui-g-nopad">
-
     <!--Titulo da Pagina-->
     <div class="ui-g-12">
         <p-toolbar>
             <!--Alinhado a Esquerdo-->
             <div class="ui-toolbar-group-left">
                 Titulo da Janela!
-
             </div>
-
           </p-toolbar>
     </div>
 
     <!-- Tela Principal do Sistema-->
     <div class="ui-g-12 ui-g-nopad">
 
-      <!--Pagina de Cargos-->
-      <app-cargo></app-cargo>
-
-
+      <!--Rotas de Paginaçao-->
+      <router-outlet></router-outlet>
 
     </div>
     <!--/Tela Principal do Sistema-->
   </div>
+
 
   <!--Footer-->
   <div class="ui-g-12">
