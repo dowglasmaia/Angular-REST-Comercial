@@ -1,5 +1,6 @@
 import { Cargo } from './../../../classes/cadastros/cargo';
 import { Component, OnInit } from '@angular/core';
+import { CargoService } from 'src/app/services/cadastros/cargo.service';
 
 @Component({
   selector: 'app-cargo',
@@ -12,10 +13,11 @@ export class CargoComponent implements OnInit {
 
   cargos: Cargo[];
 
-  constructor() { }
+  constructor(private cargoService: CargoService) { }
 
   ngOnInit() {
-    this.cargos = [];
+    this.cargos = this.cargoService.getCargos();
+
     this.cols = [
       { field: 'id', header: 'Código ' },
       { field: 'nome', header: 'Nome' },

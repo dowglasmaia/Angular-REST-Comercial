@@ -1,5 +1,6 @@
-/**@author Dowglas Maia
- * Classe que representa a Entidade do Back-End / Bando Dados
+/**
+ * @author Dowglas Maia
+ * Classe que representa a Entidade do Back-End /Bando Dados
  */
 export class Cargo {
   id: number;
