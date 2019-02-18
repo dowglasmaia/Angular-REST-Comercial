@@ -29,4 +29,13 @@ export class CargoService {
     return this.cargos;
   }
 
+  /*Bascar Cargo por ID */
+  getCargoId(id: number) {
+    for (let i = 1; i < this.cargos.length; i++) {
+      if (id === this.cargos[i].id) {
+        return this.cargos[i];
+      }
+    }
+    return null;
+  }
 }

@@ -17,7 +17,8 @@ import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalh
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
 const routes: Routes = [
   { path: 'cargo', component: CargoComponent },
-  { path: 'cargo/novo', component: CargoDetalheComponent }
+  { path: 'cargo/novo', component: CargoDetalheComponent },
+  { path: 'cargo/:id', component: CargoDetalheComponent }
 ];
 
 @NgModule({

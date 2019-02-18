@@ -40,6 +40,11 @@ export class CargoComponent implements OnInit {
   onRowUnselect(event) {
     this.botoesDesabilitado = true;
   }
- /* /fim */
+  /* /fim */
 
+
+  /* Retorna o cargo selecionado com*/
+  getIdCargo() {
+    return this.cargoSelecionado == null ? null : this.cargoSelecionado.id;
+  }
 }
