@@ -2,7 +2,7 @@
 <h3>Listagem de Cargos</h3>
 
 <p-table [columns]="cols" [value]="cargos" selectionMode="single" [(selection)]="cargoSelecionado" dataKey="id"
-  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)">
+  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [paginator]="true" [rows]="10">
 
   <ng-template pTemplate="caption">
     <!-- Butões -->

@@ -17,6 +17,9 @@ import {ButtonModule} from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 
 
 
@@ -41,6 +44,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     InputTextModule,
     InputTextareaModule,
     FormsModule, // nesserario para usar o formalario
+    MessagesModule,
+    MessageModule,
+
 
   ],
 

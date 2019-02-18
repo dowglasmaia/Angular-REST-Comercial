@@ -4,29 +4,39 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { SelectItem } from 'primeng/components/common/api';
+import { Message } from 'primeng/components/common/api';
+import { MessageService } from 'primeng/components/common/messageservice';
+
+
 
 @Component({
   selector: 'app-cargo-detalhe',
   templateUrl: './cargo-detalhe.component.html',
-  styleUrls: ['./cargo-detalhe.component.css']
+  styleUrls: ['./cargo-detalhe.component.css'],
+
+  providers: [MessageService]
 })
 export class CargoDetalheComponent implements OnInit {
 
   cargo: Cargo;
 
+  /* growl do primeNG */
+  msgs: Message[] = [];
+
   constructor(
     private cargoservice: CargoService,
     private route: ActivatedRoute,
     private location: Location,
-    private router: Router) { }
+    private router: Router,
+    private messageService: MessageService
+  ) { }
 
   ngOnInit() {
-    this.cargo = new Cargo();
-
-    if (this.router.url  !== '/cargo/novo') {
+    if (this.router.url !== '/cargo/novo') {
       this.rotaAtiva();
     } else {
-
+      this.cargo = new Cargo();
     }
 
   }
@@ -42,5 +52,13 @@ export class CargoDetalheComponent implements OnInit {
   retornar() {
     this.location.back();
   }
+
+  /* salvar */
+  salvar() {
+    this.cargoservice.salvar(this.cargo);
+    this.msgs.push({ severity: 'success', summary: 'Registro Salvo com Sucesso!'});
+                                 /* https://www.primefaces.org/primeng/#/messages*/
+  }
+
 
 }

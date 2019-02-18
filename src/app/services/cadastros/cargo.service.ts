@@ -38,4 +38,25 @@ export class CargoService {
     }
     return null;
   }
+
+  /* Salvar */
+  salvar(cargo: Cargo) {
+    /*  implementação de Test - sera trocada peça requisição da API do Servidor */
+    if (cargo.id == null) {
+      cargo.id = this.cargos.length+1;
+      this.cargos.push(cargo);
+
+    } else {
+      let indice = -1;
+      for (let i = 0; i < this.cargos.length; i++) {
+        if (cargo.id == this.cargos[i].id) {
+          indice = i;
+          break;
+        }
+      }
+      this.cargos[indice] = cargo;
+    }
+  } /*  /salvar*/
+
+
 }
