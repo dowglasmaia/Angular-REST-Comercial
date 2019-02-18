@@ -3,10 +3,8 @@ import { Cargo } from './../../../../classes/cadastros/cargo';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
-
-import { SelectItem } from 'primeng/components/common/api';
 import { Message } from 'primeng/components/common/api';
-import { MessageService } from 'primeng/components/common/messageservice';
+
 
 
 
@@ -15,7 +13,7 @@ import { MessageService } from 'primeng/components/common/messageservice';
   templateUrl: './cargo-detalhe.component.html',
   styleUrls: ['./cargo-detalhe.component.css'],
 
-  providers: [MessageService]
+  providers: []
 })
 export class CargoDetalheComponent implements OnInit {
 
@@ -29,7 +27,7 @@ export class CargoDetalheComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
-    private messageService: MessageService
+
   ) { }
 
   ngOnInit() {

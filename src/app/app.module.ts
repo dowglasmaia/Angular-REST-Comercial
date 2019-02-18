@@ -19,6 +19,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
 
 
 
@@ -46,11 +48,13 @@ import {MessageModule} from 'primeng/message';
     FormsModule, // nesserario para usar o formalario
     MessagesModule,
     MessageModule,
+    ConfirmDialogModule,
+
 
 
   ],
 
-  providers: [],
+  providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

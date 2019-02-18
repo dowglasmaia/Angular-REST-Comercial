@@ -43,7 +43,7 @@ export class CargoService {
   salvar(cargo: Cargo) {
     /*  implementação de Test - sera trocada peça requisição da API do Servidor */
     if (cargo.id == null) {
-      cargo.id = this.cargos.length+1;
+      cargo.id = this.cargos.length + 1;
       this.cargos.push(cargo);
 
     } else {
@@ -58,5 +58,15 @@ export class CargoService {
     }
   } /*  /salvar*/
 
-
+  excluir(cargo: Cargo) {
+    /* Test - sera substituido pelo da API Rest do Back-End */
+    let indice = -1;
+    for (let i = 0; i < this.cargos.length; i++) {
+      if (cargo.id == this.cargos[i].id) {
+        indice = i;
+        break;
+      }
+    }
+    this.cargos.splice(indice, 1); // Exlcuir um Resgistro
+  }
 }

@@ -1,4 +1,7 @@
 <!-- https://www.primefaces.org/primeng/#/table -->
+<p-confirmDialog></p-confirmDialog> <!-- dialog de Confirmação-->
+<p-messages [(value)]="msgs"></p-messages>
+
 <h3>Listagem de Cargos</h3>
 
 <p-table [columns]="cols" [value]="cargos" selectionMode="single" [(selection)]="cargoSelecionado" dataKey="id"
@@ -9,7 +12,7 @@
     <div class="botoesDetalhes">
       <p-button icon="pi pi-plus" [routerLink]="['/cargo/novo']"> </p-button><!-- Novo -->
       <p-button icon="pi pi-search" [disabled]="botoesDesabilitado" [routerLink]="['/cargo',getIdCargo()]"></p-button><!-- Mostra detalhes -->
-      <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado"></p-button><!-- Excluir -->
+      <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button><!-- Excluir -->
     </div>
   </ng-template>
 
