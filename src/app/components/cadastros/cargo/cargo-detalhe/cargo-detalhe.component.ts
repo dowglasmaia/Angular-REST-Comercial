@@ -1,3 +1,4 @@
+import { VariaveisGlobais } from './../../../../classes/variaveis-globais';
 import { CargoService } from './../../../../services/cadastros/cargo.service';
 import { Cargo } from './../../../../classes/cadastros/cargo';
 
@@ -6,8 +7,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { Message } from 'primeng/components/common/api';
-
-
 
 
 @Component({
@@ -29,10 +28,12 @@ export class CargoDetalheComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
-
+    private global: VariaveisGlobais
   ) { }
 
   ngOnInit() {
+    this.global.tituloJanela = 'Cadastro e Atualização de Cargos!';
+
     if (this.router.url !== '/cargo/novo') {
       this.rotaAtiva();
     } else {

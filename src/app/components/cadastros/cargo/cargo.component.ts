@@ -1,3 +1,4 @@
+import { VariaveisGlobais } from './../../../classes/variaveis-globais';
 import { Message } from 'primeng/components/common/api';
 import { Cargo } from './../../../classes/cadastros/cargo';
 import { Component, OnInit } from '@angular/core';
@@ -28,9 +29,13 @@ export class CargoComponent implements OnInit {
 
   constructor(
     private cargoService: CargoService,
-    private confirmationService: ConfirmationService) { }
+    private confirmationService: ConfirmationService,
+    private global: VariaveisGlobais) { }
 
   ngOnInit() {
+    /* Alterando o Titulo da Pagina Dinamicamente */
+    this.global.tituloJanela = 'Listagem de Cargos!';
+
     this.cargos = this.cargoService.getCargos();
 
     this.cols = [

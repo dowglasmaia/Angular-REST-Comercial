@@ -1,3 +1,4 @@
+import { VariaveisGlobais } from './../../classes/variaveis-globais';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private global: VariaveisGlobais) { }
 
   ngOnInit() {
+    this.global.tituloJanela = 'MaiaTi - Sistemas';
   }
 
 }
