@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Message } from 'primeng/components/common/api';
-
-
 @Component({
   selector: 'app-cargo-detalhe',
   templateUrl: './cargo-detalhe.component.html',
@@ -20,9 +17,6 @@ export class CargoDetalheComponent implements OnInit {
 
   cargo: Cargo;
 
-  /* Messagem do primeNG */
-  msgs: Message[] = [];
-
   constructor(
     private cargoservice: CargoService,
     private route: ActivatedRoute,
@@ -33,24 +27,22 @@ export class CargoDetalheComponent implements OnInit {
 
   ngOnInit() {
     this.global.tituloJanela = 'Cadastro e Atualização de Cargos!';
-
-    if (this.router.url !== '/cargo/novo') {
-      this.rotaAtiva();
+    if (this.router.url == '/cargo/novo') {
+      this.cargo = new Cargo();
     } else {
-      this.cargo = new Cargo();
+      /* pegado o paramento na rota ativa */ // usando o parseInt para converter o Number para String
+      let id = this.route.snapshot.paramMap.get('id');
+      this.cargoservice.getCargoId(parseInt(id, 0)).subscribe(obj => {
+        this.cargo = obj;
+      }, error => {
+        this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
+      });
+
+      /*  if (this.cargo !== null) {
+          this.cargo = new Cargo();
+          this.router.navigate(['nao-encontrado']);
+        }    */
     }
-    if (this.cargo == null) {
-      this.cargo = new Cargo();
-      this.router.navigate(['nao-encontrado']);
-    }
-
-  }
-
-  /* pegado o paramento na rota ativa */
-  rotaAtiva() {
-    let id = this.route.snapshot.paramMap.get('id');
-    this.cargo = this.cargoservice.getCargoId(parseInt(id, 0)); // usando o parseInt para converter o Number para String
-
   }
 
   //Retornar
@@ -60,9 +52,12 @@ export class CargoDetalheComponent implements OnInit {
 
   /* salvar */
   salvar() {
-    this.cargoservice.salvar(this.cargo);
-    this.msgs.push({ severity: 'success', summary: 'Registro Salvo com Sucesso!' });
-    /* https://www.primefaces.org/primeng/#/messages*/
+    this.cargoservice.salvar(this.cargo).subscribe(obj => {
+      this.cargo = obj;
+      this.global.mostraMsg(this.global.success, 'MaiaTI Sistemas: ', 'Registro salvo com Sucesso!');
+    }, error => {
+      this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
+    });
   }
 
 

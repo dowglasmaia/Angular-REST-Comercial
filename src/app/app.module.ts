@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 
@@ -13,20 +15,16 @@ import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalh
 /* imports dos Modulos do PrimeNG - https://www.primefaces.org/primeng */
 import { ToolbarModule } from 'primeng/toolbar';
 import { AccordionModule } from 'primeng/accordion';
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 import { HomeComponent } from './components/home/home.component';
-
-
-
-
 
 
 @NgModule({
@@ -53,12 +51,11 @@ import { HomeComponent } from './components/home/home.component';
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
-
-
-
+    HttpClientModule, //modulo para fazer requisições http ao servidor
   ],
 
   providers: [ConfirmationService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
