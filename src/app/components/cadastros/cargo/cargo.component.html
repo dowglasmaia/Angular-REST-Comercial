@@ -1,6 +1,5 @@
 <!-- https://www.primefaces.org/primeng/#/table -->
 <p-confirmDialog></p-confirmDialog> <!-- dialog de Confirmação-->
-<p-messages [(value)]="msgs"></p-messages>
 
 <p-table [columns]="cols" [value]="cargos" selectionMode="single" [(selection)]="cargoSelecionado" dataKey="id"
   (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [paginator]="true" [rows]="10">
@@ -13,6 +12,7 @@
       <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button><!-- Excluir -->
     </div>
   </ng-template>
+
 
   <!-- Cabeçalho da Tabela-->
   <ng-template pTemplate="header" let-columns>

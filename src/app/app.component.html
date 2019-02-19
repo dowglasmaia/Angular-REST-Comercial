@@ -1,80 +1,101 @@
-<p-messages [(value)]="global.msgs"></p-messages>  <!-- msg -->
-<div class="ui-g">
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>MaiaTI SysCom</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <p-messages [(value)]="global.msgs"></p-messages> <!-- msg -->
+  <div class="ui-g">
 
 
-  <!-- Header - Cabeçalho -->
-  <div class="ui-g-12 ui-md-2">
-    <!--Logo-->
-    <div style="text-align: center">
-      <a routerLink=""> <span>MaiaTi - SysCom</span>
-        <img src="/assets/img/logo.png" alt="MaiaTi.com">
-      </a>
-    </div><!-- /Logo-->
+    <!-- Header - Cabeçalho -->
+    <div class="ui-g-12 ui-md-2">
+      <!--Logo-->
+      <div style="text-align: center">
+        <a routerLink=""> <span>MaiaTi - SysCom</span>
+          <img src="/assets/img/logo.png" alt="MaiaTi.com">
+        </a>
+      </div><!-- /Logo-->
 
-    <p-accordion>
-      <p-accordionTab header="Cadastros">
-        <nav>
-          <ul>
+      <p-accordion>
+        <p-accordionTab header="Cadastros">
+          <nav>
+            <ul>
 
-            <li><a routerLink="/cargo">Cargos</a></li>
+              <li><a routerLink="/cargo">Cargos</a></li>
 
-          </ul>
+            </ul>
 
-        </nav>
-      </p-accordionTab>
+          </nav>
+        </p-accordionTab>
 
-      <p-accordionTab header="Fincanceiro">
-        Content 2
-      </p-accordionTab>
+        <p-accordionTab header="Fincanceiro">
+          Content 2
+        </p-accordionTab>
 
-      <p-accordionTab header="Comercial">
-        Content 3
-      </p-accordionTab>
-    </p-accordion>
+        <p-accordionTab header="Comercial">
+          <button class="btn btn-primary">Salvar</button>
+        </p-accordionTab>
+      </p-accordion>
 
-  </div>
+    </div>
 
 
-  <!-- Corpo da Pagina -->
-  <div class="ui-g-12 ui-md-10 ui-g-nopad">
+    <!-- Corpo da Pagina -->
+    <div class="ui-g-12 ui-md-10 ui-g-nopad">
 
-    <!--Titulo da Pagina-->
+      <!--Titulo da Pagina-->
+      <div class="ui-g-12">
+        <p-toolbar>
+          <div class="ui-toolbar-group-left">
+            <!--Alinhado a Esquerdo-->
+            {{global.tituloJanela}}
+          </div>
+        </p-toolbar>
+
+      </div>
+
+      <!-- Tela Principal do Sistema-->
+      <div class="ui-g-12 ui-g-nopad">
+
+        <!--Rotas de Paginaçao-->
+        <router-outlet></router-outlet>
+
+      </div>
+      <!--/Tela Principal do Sistema-->
+    </div>
+
+
+    <!--Footer-->
     <div class="ui-g-12">
       <p-toolbar>
+
+        <!--Lado Esquerdo-->
         <div class="ui-toolbar-group-left">
-          <!--Alinhado a Esquerdo-->
-          {{global.tituloJanela}}
+
         </div>
+
+        <!--Lado Direito-->
+        <div class="ui-toolbar-group-right">
+          <h4>Dowglas Maia (Sair)</h4>
+        </div>
+
       </p-toolbar>
-
     </div>
 
-    <!-- Tela Principal do Sistema-->
-    <div class="ui-g-12 ui-g-nopad">
-
-      <!--Rotas de Paginaçao-->
-      <router-outlet></router-outlet>
-
-    </div>
-    <!--/Tela Principal do Sistema-->
   </div>
 
 
-  <!--Footer-->
-  <div class="ui-g-12">
-    <p-toolbar>
 
-      <!--Lado Esquerdo-->
-      <div class="ui-toolbar-group-left">
+</body>
 
-      </div>
-
-      <!--Lado Direito-->
-      <div class="ui-toolbar-group-right">
-        <h4>Dowglas Maia (Sair)</h4>
-      </div>
-
-    </p-toolbar>
-  </div>
-
-</div>
+</html>

@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule} from '@angular/common/http';
 
+/* bootstrap ngx */
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 
 import { AppComponent } from './app.component';
 
@@ -52,6 +55,7 @@ import { HomeComponent } from './components/home/home.component';
     MessageModule,
     ConfirmDialogModule,
     HttpClientModule, //modulo para fazer requisições http ao servidor
+    BsDropdownModule.forRoot(),
   ],
 
   providers: [ConfirmationService],
