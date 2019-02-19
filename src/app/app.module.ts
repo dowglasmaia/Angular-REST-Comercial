@@ -22,6 +22,7 @@ import {MessageModule} from 'primeng/message';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -33,7 +34,8 @@ import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontra
     AppComponent,
     CargoComponent,
     CargoDetalheComponent,
-    NaoEncontradoComponent
+    NaoEncontradoComponent,
+    HomeComponent
   ],
 
   /* Declara os Imports no imports: []*/

@@ -1,3 +1,4 @@
+import { HomeComponent } from './components/home/home.component';
 /**
  * @author Dowglas maia
  * @email dowglasmaia@live.com
@@ -17,10 +18,12 @@ import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontra
 
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
 const routes: Routes = [
+  { path: '', component: HomeComponent},
   { path: 'cargo', component: CargoComponent },
   { path: 'cargo/novo', component: CargoDetalheComponent },
   { path: 'cargo/:id', component: CargoDetalheComponent },
-  { path: 'nao-encontrado', component: NaoEncontradoComponent }
+  { path: 'nao-encontrado', component: NaoEncontradoComponent },
+
 ];
 
 @NgModule({
