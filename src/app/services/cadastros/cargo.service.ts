@@ -12,7 +12,7 @@ export class CargoService {
 
     this.cargos = [];
 
-    for (let i = 1; i < 16; i++) {
+    for (let i = 0; i < 16; i++) {
       const cargo: Cargo = new Cargo();
       cargo.id = i;
       cargo.nome = 'nome' + i;
@@ -31,7 +31,7 @@ export class CargoService {
 
   /*Bascar Cargo por ID */
   getCargoId(id: number) {
-    for (let i = 1; i < this.cargos.length; i++) {
+    for (let i = 0; i < this.cargos.length; i++) {
       if (id === this.cargos[i].id) {
         return this.cargos[i];
       }

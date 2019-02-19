@@ -71,6 +71,8 @@ export class CargoComponent implements OnInit {
       accept: () => {
         this.cargoService.excluir(this.cargoSelecionado);
 
+        this.botoesDesabilitado = true; /*Desabilita os Butões au Excluir */
+
         this.msgs = [{ severity: 'warn', summary: '', detail: 'Registro Excluido com Sucesso!' }];
       },
       reject: () => {

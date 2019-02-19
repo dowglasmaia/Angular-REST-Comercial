@@ -1,8 +1,10 @@
 import { CargoService } from './../../../../services/cadastros/cargo.service';
 import { Cargo } from './../../../../classes/cadastros/cargo';
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+
 import { Message } from 'primeng/components/common/api';
 
 
@@ -19,7 +21,7 @@ export class CargoDetalheComponent implements OnInit {
 
   cargo: Cargo;
 
-  /* growl do primeNG */
+  /* Messagem do primeNG */
   msgs: Message[] = [];
 
   constructor(
@@ -35,6 +37,10 @@ export class CargoDetalheComponent implements OnInit {
       this.rotaAtiva();
     } else {
       this.cargo = new Cargo();
+    }
+    if (this.cargo == null) {
+      this.cargo = new Cargo();
+      this.router.navigate(['nao-encontrado']);
     }
 
   }
@@ -54,8 +60,8 @@ export class CargoDetalheComponent implements OnInit {
   /* salvar */
   salvar() {
     this.cargoservice.salvar(this.cargo);
-    this.msgs.push({ severity: 'success', summary: 'Registro Salvo com Sucesso!'});
-                                 /* https://www.primefaces.org/primeng/#/messages*/
+    this.msgs.push({ severity: 'success', summary: 'Registro Salvo com Sucesso!' });
+    /* https://www.primefaces.org/primeng/#/messages*/
   }
 
 

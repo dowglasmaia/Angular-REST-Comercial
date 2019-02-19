@@ -12,13 +12,15 @@ import { CommonModule } from '@angular/common';
 
 import { CargoComponent } from './components/cadastros/cargo/cargo.component';
 import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
+import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 
 
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
 const routes: Routes = [
   { path: 'cargo', component: CargoComponent },
   { path: 'cargo/novo', component: CargoDetalheComponent },
-  { path: 'cargo/:id', component: CargoDetalheComponent }
+  { path: 'cargo/:id', component: CargoDetalheComponent },
+  { path: 'nao-encontrado', component: NaoEncontradoComponent }
 ];
 
 @NgModule({
