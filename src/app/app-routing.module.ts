@@ -14,11 +14,13 @@ import { CommonModule } from '@angular/common';
 import { CargoComponent } from './components/cadastros/cargo/cargo.component';
 import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'cargo', component: CargoComponent },
   { path: 'cargo/novo', component: CargoDetalheComponent },
   { path: 'cargo/:id', component: CargoDetalheComponent },
