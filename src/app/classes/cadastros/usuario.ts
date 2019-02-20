@@ -9,4 +9,5 @@ export class Usuario {
   senha: string;
   colaborador: Colaborador;
   papel: Papel;
+  token: string;
 }

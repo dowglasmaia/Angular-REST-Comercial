@@ -26,10 +26,11 @@ export class LoginComponent implements OnInit {
 
   /* Login */
   login() {
-    this.loginService.login(this.usuario).subscribe(obj => {
-      this.usuario = obj;
-      this.router.navigate(['/home']); // redireciona para a pagina home caso o login seja concluido!
-    },
+    this.loginService.login(this.usuario).subscribe(
+      obj => {
+        this.usuario = obj;
+        this.router.navigate(['']); // redireciona para a pagina home caso o login seja concluido!
+      },
       error => {
         this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
       });

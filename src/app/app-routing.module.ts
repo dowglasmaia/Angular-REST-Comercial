@@ -20,12 +20,17 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
-  { path: 'login', component: LoginComponent },
-  { path: 'cargo', component: CargoComponent},
-  { path: 'cargo/novo', component: CargoDetalheComponent },
-  { path: 'cargo/:id', component: CargoDetalheComponent },
-  { path: 'nao-encontrado', component: NaoEncontradoComponent },
+  /* Definindo Padrão de Rotas - para Todas Passarem pela Guarda de Rotas */
+  {   path: '', canActivate: [AuthGuardService],
+      children: [
+        { path: '', component: HomeComponent },
+        { path: 'cargo', component: CargoComponent },
+        { path: 'cargo/novo', component: CargoDetalheComponent },
+        { path: 'cargo/:id', component: CargoDetalheComponent },
+        { path: 'nao-encontrado', component: NaoEncontradoComponent }
+    ]},
+
+  { path: 'login', component: LoginComponent }
 
 ];
 

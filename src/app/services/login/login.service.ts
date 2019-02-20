@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-//import { tab } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { urlBaseServidor, httpOptions } from './../../classes/variaveis-globais';
 import { Usuario } from './../../classes/cadastros/usuario';
 
@@ -20,14 +20,14 @@ export class LoginService {
 
   /* Login */
   login(usuario: Usuario): Observable<Usuario> {
-    /* return this.http.post<Usuario>(this.url, usuario, httpOptions).pipe(
-       tab(
-         data => {
-           this.usuarioLogado = true;
-         }
-       )); */
-    this.usuarioLogado = true;
-    return of<Usuario>(usuario);
+    return this.http.post<Usuario>(this.url, usuario, httpOptions)
+      .pipe(tap(
+        data => {
+          this.usuarioLogado = true;
+        }
+      ));
+    /* this.usuarioLogado = true;
+     return of<Usuario>(usuario); */
   }
 
   /* logout */

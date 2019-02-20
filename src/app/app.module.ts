@@ -3,12 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule} from '@angular/common/http';
-
-/* bootstrap ngx */
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { ButtonsModule } from 'ngx-bootstrap/buttons';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 
@@ -30,7 +25,7 @@ import { ConfirmationService } from 'primeng/api';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import {PasswordModule} from 'primeng/password';
+import { PasswordModule } from 'primeng/password';
 
 
 @NgModule({
@@ -58,10 +53,9 @@ import {PasswordModule} from 'primeng/password';
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
-    HttpClientModule, //modulo para fazer requisições http ao servidor
-    BsDropdownModule.forRoot(),
+    HttpClientModule, //modulo para fazer requisições http ao servidor   
     PasswordModule,
-    ButtonsModule
+
   ],
 
   providers: [ConfirmationService],
