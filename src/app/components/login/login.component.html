@@ -3,7 +3,7 @@
 
   <div class="ui-g-12 ui-md-4 ui-md-offset-4">
     <span class="ui-float-label">
-      <input id="float-input" type="text" pInputText>
+      <input id="float-input" type="text" pInputText [(ngModel)]="usuario.login">
       <label for="float-input">Usuario</label>
     </span>
   </div>
@@ -11,14 +11,14 @@
   <!-- Senha -->
   <div class="ui-g-12 ui-md-4 ui-md-offset-4">
     <span class="ui-float-label">
-      <input id="float-input" type="password" pPassword>
+      <input id="float-input" type="password" pPassword [(ngModel)]="usuario.senha">
       <label for="float-input">Senha</label>
     </span>
   </div>
 
   <!-- Logar -->
   <div class="ui-g-12 ui-md-4 ui-md-offset-4">
-    <p-button label="Logar"></p-button>
+    <p-button label="Logar" (onClick)="login()"></p-button>
   </div>
 
 </div>
