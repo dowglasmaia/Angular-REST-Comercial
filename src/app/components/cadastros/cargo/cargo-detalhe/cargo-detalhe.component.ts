@@ -37,11 +37,6 @@ export class CargoDetalheComponent implements OnInit {
       }, error => {
         this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
       });
-
-      /*  if (this.cargo !== null) {
-          this.cargo = new Cargo();
-          this.router.navigate(['nao-encontrado']);
-        }    */
     }
   }
 

@@ -28,6 +28,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HomeComponent } from './components/home/home.component';
     CargoComponent,
     CargoDetalheComponent,
     NaoEncontradoComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
 
   /* Declara os Imports no imports: []*/
