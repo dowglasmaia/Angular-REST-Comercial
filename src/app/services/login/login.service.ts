@@ -14,14 +14,19 @@ export class LoginService {
   /* URL do Servidor com o parametro login */
   url = urlBaseServidor + 'login';
 
-  constructor(private http: HttpClient) { }
+  usuario: Usuario;
+
+  constructor(private http: HttpClient) {
+    this.usuario = new Usuario();
+  }
 
   /* Login */
   login(usuario: Usuario): Observable<Usuario> {
     return this.http.post<Usuario>(this.url, usuario, httpOptions)
       .pipe(tap(
-        data => {
+        data => {          
           localStorage.setItem('usuarioSessao', JSON.stringify(usuario)); //armazena os dados do Usuario no localStorage
+       this.usuario = data as Usuario;
         }
       ));
     /* this.usuarioLogado = true;

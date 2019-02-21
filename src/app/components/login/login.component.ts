@@ -35,4 +35,10 @@ export class LoginComponent implements OnInit {
         this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
       });
   }
+
+  /* Verifica se os campo de login e senha foram informados - e retorna true ou false , 
+  * Habilitando ou Desabilitando o Botao de Logar */
+  botaoDesabilitado(): boolean {
+    return !(this.usuario.login && this.usuario.senha);
+  }
 }

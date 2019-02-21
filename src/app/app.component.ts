@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { VariaveisGlobais } from './classes/variaveis-globais';
+import { LoginService } from './services/login/login.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,9 @@ export class AppComponent {
   title = 'comercial-api-cliente';
 
 
-  constructor(private global: VariaveisGlobais) { }
+  constructor(
+    private global: VariaveisGlobais,
+    private loginService: LoginService) { }
 
   ngOnInit() {
     this.global.tituloJanela = 'MaiaTi - Sistemas';

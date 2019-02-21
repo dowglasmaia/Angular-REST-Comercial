@@ -2,6 +2,10 @@
 <div class="ui-g">
 
   <div class="ui-g-12 ui-md-4 ui-md-offset-4">
+    <span style="font-size: 40px">Login</span>
+  </div>
+
+  <div class="ui-g-12 ui-md-4 ui-md-offset-4">
     <span class="ui-float-label">
       <input id="float-input" type="text" pInputText [(ngModel)]="usuario.login">
       <label for="float-input">Usuario</label>
@@ -18,7 +22,7 @@
 
   <!-- Logar -->
   <div class="ui-g-12 ui-md-4 ui-md-offset-4">
-    <p-button label="Logar" (onClick)="login()"></p-button>
+    <p-button label="Logar" (onClick)="login()" icon="pi pi-sign-in" [disabled]="botaoDesabilitado()"></p-button>
   </div>
 
 </div>
