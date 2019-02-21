@@ -3,13 +3,18 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 
 /* Modulos de Componentes do Sistema*/
 import { CargoComponent } from './components/cadastros/cargo/cargo.component';
 import { CargoDetalheComponent } from './components/cadastros/cargo/cargo-detalhe/cargo-detalhe.component';
+import { JwtInterceptor } from './interceptor/jwt-interceptor';
+import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
 
 /* imports dos Modulos do PrimeNG - https://www.primefaces.org/primeng */
 import { ToolbarModule } from 'primeng/toolbar';
@@ -22,10 +27,8 @@ import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
-import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
-import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { PasswordModule } from 'primeng/password';
+
 
 
 @NgModule({
@@ -58,7 +61,9 @@ import { PasswordModule } from 'primeng/password';
 
   ],
 
-  providers: [ConfirmationService],
+  providers: [ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } /*declarando o privide do HTTP_INTERCEPETOR para a Class jwtInterceptor*/
+  ],
   bootstrap: [AppComponent]
 })
 

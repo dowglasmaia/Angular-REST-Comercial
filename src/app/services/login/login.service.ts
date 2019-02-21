@@ -14,8 +14,6 @@ export class LoginService {
   /* URL do Servidor com o parametro login */
   url = urlBaseServidor + 'login';
 
-  usuarioLogado: boolean = false;
-
   constructor(private http: HttpClient) { }
 
   /* Login */
@@ -23,7 +21,7 @@ export class LoginService {
     return this.http.post<Usuario>(this.url, usuario, httpOptions)
       .pipe(tap(
         data => {
-          this.usuarioLogado = true;
+          localStorage.setItem('usuarioSessao', JSON.stringify(usuario)); //armazena os dados do Usuario no localStorage
         }
       ));
     /* this.usuarioLogado = true;
@@ -32,7 +30,18 @@ export class LoginService {
 
   /* logout */
   logout() {
-    this.usuarioLogado = false;
+    localStorage.removeItem('usuarioSessao'); // Romeve o Usuario do localStorade
+
   }
+
+  /*verificando se usuario estar logado ou não */
+  getUsuarioLogado(): boolean {
+    if (localStorage.getItem('usuarioSessao') != null) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
 }
