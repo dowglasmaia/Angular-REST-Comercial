@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { Cargo } from './../../classes/cadastros/cargo';
-import { urlBaseServidor, httpOptions } from './../../classes/variaveis-globais';
+
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -13,9 +14,10 @@ export class CargoService {
 
   private cargos: Cargo[];
 
-  private url = urlBaseServidor + 'cargos/';
+  private url = environment.urlBaseServidor + 'cargos/';
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient) {
 
   }
 
@@ -32,7 +34,8 @@ export class CargoService {
 
   /* Salvar */
   salvar(cargo: Cargo): Observable<Cargo> {
-    return this.http.post<Cargo>(this.url, cargo, httpOptions);
+    return this.http.post<Cargo>(this.url, cargo, environment.httpOptions);
+
   }
 
   /* Excluir -  Retonar o Objeto Vazio*/

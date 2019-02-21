@@ -17,8 +17,9 @@
   <div class="ui-g">
 
 
-    <!-- Header-Cabeçalho--><!--se o Usuario não estiver Logado o Menu de opções não estara visivel ate que o mesmo faço o login-->
-    <div class="ui-g-12 ui-md-2" *ngIf="loginService.getUsuarioLogado()">
+    <!-- Header-Cabeçalho-->
+    <!--se o Usuario não estiver Logado o Menu de opções não estara visivel ate que o mesmo faço o login-->
+    <div class="ui-g-12 ui-md-2">
       <!--Logo-->
       <div style="text-align: center">
         <span>MaiaTi - SysCom</span>
@@ -26,13 +27,13 @@
           <img src="/assets/img/logo.png" alt="MaiaTi.com">
         </a>
       </div><!-- /Logo-->
-           
-      <p-accordion >
+
+      <p-accordion *ngIf="loginService.getUsuarioLogado()">
         <p-accordionTab header="Cadastros">
           <nav>
             <ul>
 
-              <li><a routerLink="/cargo">Cargos</a></li>
+              <li><a routerLink="/cargos">Cargos</a></li>
 
             </ul>
 
@@ -56,7 +57,7 @@
 
       <!--Titulo da Pagina-->
       <div class="ui-g-12">
-        <p-toolbar *ngIf="loginService.getUsuarioLogado()">
+        <p-toolbar>
           <div class="ui-toolbar-group-left">
             <!--Alinhado a Esquerdo-->
             {{global.tituloJanela}}
@@ -82,12 +83,12 @@
       <p-toolbar>
         <!--Lado Esquerdo-->
         <div class="ui-toolbar-group-left">
-          <span>www.dowglasmaia.com</span>
+          <span> {{loginService.usuario.login}} </span>
         </div>
 
         <!--Lado Direito-->
         <div class="ui-toolbar-group-right">
-          <h4>{{loginService.usuario.login}} (<a href="/" (onClick)="loginService.logout()">Sair</a>)</h4>
+        <a href="" (click)="loginService.logout()">Sair</a>
         </div>
 
       </p-toolbar>

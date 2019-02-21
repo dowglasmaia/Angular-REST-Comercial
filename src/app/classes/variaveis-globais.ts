@@ -3,14 +3,6 @@ import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Message } from 'primeng/api';
 import { Router } from '@angular/router';
 
-/* url do servidor*/
-export const urlBaseServidor = 'http://localhost:8080/';
-
-/* headers - Definindo o Tipo de Conteudo que é Passo no corpo da requisição*/
-export const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
 @Injectable({
   providedIn: 'root'
 })

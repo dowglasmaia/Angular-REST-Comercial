@@ -24,7 +24,7 @@ const routes: Routes = [
   {   path: '', canActivate: [AuthGuardService],
       children: [
         { path: '', component: HomeComponent },
-        { path: 'cargo', component: CargoComponent },
+        { path: 'cargos', component: CargoComponent },
         { path: 'cargo/novo', component: CargoDetalheComponent },
         { path: 'cargo/:id', component: CargoDetalheComponent },
         { path: 'nao-encontrado', component: NaoEncontradoComponent }

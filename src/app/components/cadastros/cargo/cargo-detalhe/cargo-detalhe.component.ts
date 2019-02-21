@@ -50,6 +50,7 @@ export class CargoDetalheComponent implements OnInit {
     this.cargoservice.salvar(this.cargo).subscribe(obj => {
       this.cargo = obj;
       this.global.mostraMsg(this.global.success, 'MaiaTI Sistemas: ', 'Registro salvo com Sucesso!');
+      this.router.navigate(['/cargos']);
     }, error => {
       this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
     });
