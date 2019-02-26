@@ -28,6 +28,8 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
+import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
+import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
 
 
 
@@ -38,7 +40,9 @@ import { PasswordModule } from 'primeng/password';
     CargoDetalheComponent,
     NaoEncontradoComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ColaboradorComponent,
+    ColaboradorDetalheComponent
   ],
 
   /* Declara os Imports no imports: []*/

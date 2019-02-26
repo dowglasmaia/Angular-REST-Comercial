@@ -21,8 +21,8 @@ export class Colaborador {
   pagamentoConta: string;
   pagamentoContaDigito: string;
   pagamentoForma: string;
-  cargo: Cargo;
-  pessoa: Pessoa;
-  setor: Setor;
-  tipoColaborador: TipoColaborador;
+  cargo: string;
+  pessoa: string;
+  setor: string;
+  tipoColaborador: string;
 }

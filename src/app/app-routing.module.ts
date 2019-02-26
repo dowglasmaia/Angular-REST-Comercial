@@ -16,6 +16,9 @@ import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontra
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
+import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
+
 
 
 /* Definindo as Rotas, da Aplicação - (1:path(url), - 2:componente )*/
@@ -27,7 +30,10 @@ const routes: Routes = [
         { path: 'cargos', component: CargoComponent },
         { path: 'cargo/novo', component: CargoDetalheComponent },
         { path: 'cargo/:id', component: CargoDetalheComponent },
-        { path: 'nao-encontrado', component: NaoEncontradoComponent }
+        { path: 'nao-encontrado', component: NaoEncontradoComponent },
+        { path: 'colaborador', component: ColaboradorComponent },
+        { path: 'colaborador/novo', component: ColaboradorDetalheComponent },
+        { path: 'colaborador/:id', component: ColaboradorDetalheComponent },
     ]},
 
   { path: 'login', component: LoginComponent }
@@ -37,7 +43,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+ 
+  CommonModule,
     RouterModule.forRoot(routes)
   ],
 

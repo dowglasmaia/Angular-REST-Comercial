@@ -1,4 +1,4 @@
-import { Colaborador } from './colaborador';
+import { Colaborador } from './colaborador.dto';
 import { Papel } from './papel';
 
 export class Usuario {
