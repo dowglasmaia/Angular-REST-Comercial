@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { VariaveisGlobais } from './../../../classes/variaveis-globais';
 import { Location } from '@angular/common';
 import { Pessoa } from './../../../classes/cadastros/pessoa';
+import { PessoaService } from 'src/app/services/cadastros/pessoa.service';
 
 @Component({
   selector: 'app-colaborador-detalhe',
@@ -24,15 +25,16 @@ export class ColaboradorDetalheComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private router: Router,
-    private global: VariaveisGlobais
+    private global: VariaveisGlobais,
+    private pessoaService: PessoaService
   ) { }
 
   ngOnInit() {
     this.global.tituloJanela = 'Cadastro e Atualização de colaboradors!';
     if (this.router.url == '/colaborador/novo') {
       this.colaborador = new Colaborador();
-    
-      
+      this.colaborador.pessoa = new Pessoa();
+
     } else {
       /* pegado o paramento na rota ativa */ // usando o parseInt para converter o Number para String
       let id = this.route.snapshot.paramMap.get('id');
@@ -44,11 +46,16 @@ export class ColaboradorDetalheComponent implements OnInit {
     }
   }
 
-/* Busca Pessoa - para o autocomplet */
-buscarPessoa(event) {
-  console.log( event.query);
+  /* Busca Pessoa - para o autocomplet */
+  buscarPessoa(event) {
+    this.pessoaService.getListaPessoas(event.query).subscribe(
+      obj => {
+        this.filtroPessoa = obj;
+      }, error => {
+        this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
+      });
+  }
 
-}
 
   //Retornar
   retornar() {
@@ -65,4 +72,7 @@ buscarPessoa(event) {
       this.global.mostraMsg(this.global.error, 'Ocorreu um Error', this.global.trataError(error));
     });
   }
+
+
+
 }
