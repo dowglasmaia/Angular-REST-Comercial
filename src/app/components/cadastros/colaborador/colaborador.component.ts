@@ -68,7 +68,7 @@ export class ColaboradorComponent implements OnInit {
   }
   /* /fim */
 
-  /* Retorna o cargo selecionado com*/
+  /* Retorna o Colaborador selecionado*/
   getIdcolaborador() {
     return this.colaboradorSelecionado == null ? null : this.colaboradorSelecionado.id;
   }

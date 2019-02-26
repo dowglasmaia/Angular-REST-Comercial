@@ -11,3 +11,12 @@
 .botoesDetalhes * {
   padding-left: 0.5em;
 }
+.barTpo{
+  font-size: 56px;
+  background-attachment: fixed;
+  background: #0B173B;
+  width: 100%;
+  height: 70px;
+  margin: 0px 0px 10px 0px;
+  padding: 5px;
+}

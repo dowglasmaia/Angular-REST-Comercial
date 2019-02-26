@@ -15,6 +15,9 @@ import { JwtInterceptor } from './interceptor/jwt-interceptor';
 import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontrado.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
+import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
+
 
 /* imports dos Modulos do PrimeNG - https://www.primefaces.org/primeng */
 import { ToolbarModule } from 'primeng/toolbar';
@@ -28,8 +31,12 @@ import { MessageModule } from 'primeng/message';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
-import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
-import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
+import {PanelModule} from 'primeng/panel';
+import {SplitButtonModule} from 'primeng/splitbutton';
+import {AutoCompleteModule} from 'primeng/autocomplete';
+
+
+
 
 
 
@@ -62,7 +69,9 @@ import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-
     ConfirmDialogModule,
     HttpClientModule, //modulo para fazer requisições http ao servidor   
     PasswordModule,
-
+    PanelModule,
+    SplitButtonModule,
+    AutoCompleteModule
   ],
 
   providers: [ConfirmationService,

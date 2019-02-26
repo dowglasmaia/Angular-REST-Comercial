@@ -13,7 +13,7 @@ export class ColaboradorService {
 
   private colaboradores: Colaborador[];
 
-  private url = environment.urlBaseServidor + 'colaboradores';
+  private url = environment.urlBaseServidor + 'colaboradores/';
 
   constructor(
     private http: HttpClient) {
