@@ -27,6 +27,12 @@ export class CargoService {
 
   }
 
+  /* buscar Todos os cargos*/
+  getCargosPorNome(nome: string): Observable<Cargo[]> {
+    return this.http.get<Cargo[]>(this.url + 'lista/'+ nome);
+
+  }
+
   /*Bascar Cargo por ID */
   getCargoId(id: number): Observable<Cargo> {
     return this.http.get<Cargo>(this.url + id);
