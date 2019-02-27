@@ -7,17 +7,17 @@
   </p-header>
   <div class="ui-g">
     <!-- Nome -->
-    <div class="ui-g-12 ui-md-6 ui-lg-6">
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
       <span class="ui-float-label">
         <p-autoComplete  id="pessoa" [(ngModel)]="colaborador.pessoa.nome" [suggestions]="filtroPessoa"
-          (completeMethod)="buscarPessoa($event)">
+          (completeMethod)="buscarPessoa($event)" emptyMessage="Nenhum Registro Encontrado" >
         </p-autoComplete>
 
         <label for="pessoa">Pessoa </label>
       </span>
     </div>
 
-    <div class="botoesDetalhes">
+    <div class="ui-lg-7 botoesDetalhes">
       <!-- Salvar -->
       <p-button label="Salvar" (onClick)="salvar()"></p-button>
 
