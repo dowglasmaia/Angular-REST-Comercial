@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
@@ -34,6 +34,8 @@ import { PasswordModule } from 'primeng/password';
 import {PanelModule} from 'primeng/panel';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import {FileUploadModule} from 'primeng/fileupload';
+import {GrowlModule} from 'primeng/growl';
 
 
 
@@ -64,6 +66,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     InputTextModule,
     InputTextareaModule,
     FormsModule, // nesserario para usar o formalario
+    ReactiveFormsModule,
     MessagesModule,
     MessageModule,
     ConfirmDialogModule,
@@ -71,7 +74,9 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     PasswordModule,
     PanelModule,
     SplitButtonModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    FileUploadModule, // para fazer envio de arquivo para  servidor, no caso aqui, Fotos
+    GrowlModule
   ],
 
   providers: [ConfirmationService,

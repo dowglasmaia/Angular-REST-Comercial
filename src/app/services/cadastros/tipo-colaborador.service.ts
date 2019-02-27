@@ -15,7 +15,7 @@ export class TipoColaboradorService {
   private url = environment.urlBaseServidor + 'tipo-colaboradores/';
 
   constructor(
-        private http: HttpClient) {
+    private http: HttpClient) {
 
   }
 
@@ -27,7 +27,7 @@ export class TipoColaboradorService {
 
   /* buscar Todos os TipoColaboradors*/
   getTipoColaboradoresPorNome(nome: string): Observable<TipoColaborador[]> {
-    return this.http.get<TipoColaborador[]>(this.url + 'lista/'+ nome);
+    return this.http.get<TipoColaborador[]>(this.url + 'lista/' + nome);
 
   }
 
@@ -46,4 +46,6 @@ export class TipoColaboradorService {
   excluir(id: number): Observable<{}> {
     return this.http.delete(this.url + id)
   }
+
+  
 }

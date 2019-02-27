@@ -10,6 +10,8 @@ export class JwtInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+        console.log('Passou peplo Interceptor');
+
         /* pegando o Usuario em JSON do localStorage e convertendo para o Objeto Usuario*/
         let usuario: Usuario = JSON.parse(localStorage.getItem('usuarioSessao'));
         if (usuario && usuario.token) {

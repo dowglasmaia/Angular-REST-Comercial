@@ -22,7 +22,7 @@ export class Colaborador {
   pagamentoContaDigito: string;
   pagamentoForma: string;
   cargo: string;
-  pessoa: Pessoa;
+  pessoa: string;
   setor: string;
   tipoColaborador: string;
 }

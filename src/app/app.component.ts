@@ -9,7 +9,7 @@ import { LoginService } from './services/login/login.service';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'comercial-api-cliente';
 
 

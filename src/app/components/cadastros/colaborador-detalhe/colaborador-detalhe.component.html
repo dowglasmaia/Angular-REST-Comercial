@@ -1,29 +1,75 @@
-<!--
-  Pagina de Cadastro  e Edição de Cargos
--->
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
 <p-panel>
   <p-header>
     Cadastro de Colaboradores
   </p-header>
   <div class="ui-g">
+
     <!-- Nome -->
     <div class="ui-g-12 ui-md-12 ui-lg-6">
       <span class="ui-float-label">
-        <p-autoComplete  id="pessoa" [(ngModel)]="colaborador.pessoa.nome" [suggestions]="filtroPessoa"
-          (completeMethod)="buscarPessoa($event)" emptyMessage="Nenhum Registro Encontrado" >
+        <p-autoComplete id="pessoa" formControlName="pessoa" [suggestions]="filtroPessoa"
+          (completeMethod)="buscarPessoa($event)" emptyMessage="Nenhum Registro Encontrado" field="nome" >
         </p-autoComplete>
 
         <label for="pessoa">Pessoa </label>
       </span>
     </div>
 
+    <!-- Setor -->
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+      <span class="ui-float-label">
+        <p-autoComplete id="setor" formControlName="setor"  [suggestions]="filtroSetor"
+          (completeMethod)="buscarPorSetor($event)" emptyMessage="Nenhum Registro Encontrado" field="nome">
+        </p-autoComplete>
+
+        <label for="setor">Setor </label>
+      </span>
+    </div>
+
+    <!-- Cargo -->
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+      <span class="ui-float-label">
+        <p-autoComplete id="cargo" formControlName="cargo" [suggestions]="filtroCargo"
+          (completeMethod)="buscarPorCargo($event)" emptyMessage="Nenhum Registro Encontrado" field="nome">
+        </p-autoComplete>
+
+        <label for="cargo">Cargo</label>
+      </span>
+    </div>
+
+    <!-- Tipo Colaborador -->
+    <div class="ui-g-12 ui-md-12 ui-lg-6">
+      <span class="ui-float-label">
+        <p-autoComplete id="tpColaborador" formControlName="tipoColaborador" 
+          [suggestions]="filtroTipoColaborador" (completeMethod)="buscarPorTipoColaborador($event)"
+          emptyMessage="Nenhum Registro Encontrado" field="nome">
+        </p-autoComplete>
+
+        <label for="tpColaborador">Tipo de Colaborador </label>
+      </span>
+    </div>
+
+    <!-- Foto-->
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <label>Foto </label><br>
+      <p-fileUpload ></p-fileUpload>
+    </div>
+
+
+
     <div class="ui-lg-7 botoesDetalhes">
       <!-- Salvar -->
-      <p-button label="Salvar" (onClick)="salvar()"></p-button>
+    <!-- <p-button label="Salvar" (onClick)="salvar()"></p-button> -->
+
+       <button pButton type="submit" label="Salvar" [disabled]="!formGroup.valid"></button>
 
       <!-- Cancelar - Retorna para Pagina de Listagem -->
       <p-button label="Cancelar" (onClick)="retornar()"></p-button>
     </div>
+
+
+
 
   </div>
 
@@ -31,3 +77,5 @@
     Footer content here
   </p-footer>
 </p-panel>
+
+</form>
