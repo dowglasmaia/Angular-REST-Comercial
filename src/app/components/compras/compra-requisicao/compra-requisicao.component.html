@@ -1,3 +1,41 @@
-<p>
-  compra-requisicao works!
-</p>
+<!-- https://www.primefaces.org/primeng/#/table -->
+<p-confirmDialog></p-confirmDialog> <!-- dialog de Confirmação-->
+
+<p-table [columns]="cols" [value]="compraRequisicao" selectionMode="single" [(selection)]="requisicaoSelecionada" dataKey="id"
+  (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [paginator]="true" [rows]="10">
+
+  <ng-template pTemplate="caption">
+    <!-- Butões -->
+    <div class="botoesDetalhes">
+      <p-button icon="pi pi-plus" [routerLink]="['/compra-requisicao/novo']"> </p-button><!-- Novo -->
+      <p-button icon="pi pi-pencil" [disabled]="botoesDesabilitado" [routerLink]="['/compra-requisicao', getIdRequisicao()]"></p-button><!-- Mostra detalhes -->
+      <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button><!-- Excluir -->
+    </div>
+  </ng-template>
+
+
+  <!-- Cabeçalho da Tabela-->
+  <ng-template pTemplate="header" let-columns>
+    <tr>
+      <th *ngFor="let col of columns">
+        {{col.header}}
+      </th>
+    </tr>
+  </ng-template>
+
+  <!-- Corpo da Tabela-->
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+      <td *ngFor="let col of columns">
+        {{resolveFieldData(rowData, col.field)}}
+      </td>
+    </tr>
+  </ng-template>
+
+  <!-- Roda-pé da Tabela-->
+  <ng-template pTemplate="summary">
+    <div style="text-align: left">
+      Requisição Selecioando:
+    </div>
+  </ng-template>
+</p-table>

@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 
 export class CompraRequisaoService {
 
-  private url = environment.urlBaseServidor + 'compras/requisicao';
+  /* URL do Servidor da Aplicalçao*/
+  private url = environment.urlBaseServidor + 'compra/requisicao';
 
   constructor(
     private http: HttpClient) {
@@ -18,13 +19,13 @@ export class CompraRequisaoService {
   }
 
   /* buscar Todos */
-  getCompraRequisicaos(): Observable<CompraRequisicao[]> {
+  getCompraRequisicoes(): Observable<CompraRequisicao[]> {
     return this.http.get<CompraRequisicao[]>(this.url);
 
   }
 
   /* Lista de CompraRequisicao pelo nome*/
-  getListaCompraRequisicaos(nome: string): Observable<CompraRequisicao[]> {
+  getListaCompraRequisicoes(nome: string): Observable<CompraRequisicao[]> {
     return this.http.get<CompraRequisicao[]>(this.url + 'lista/' + nome);
 
   }

@@ -1,13 +1,10 @@
-import { Cargo } from './../../../model/classes/cargo';
-import { Colaborador } from './../../../model/classes/colaborador';
+import { ColaboradorService } from './../../../../services/cadastros/colaborador.service';
+import { Cargo } from './../../../../model/classes/cargo';
+import { Colaborador } from './../../../../model/classes/colaborador';
+
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-
-
-
-
-import { ColaboradorService } from './../../../services/cadastros/colaborador.service';
 
 
 import { PessoaService } from 'src/app/services/cadastros/pessoa.service';

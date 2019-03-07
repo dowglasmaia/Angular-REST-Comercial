@@ -16,7 +16,13 @@ import { NaoEncontradoComponent } from './components/nao-encontrado/nao-encontra
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
-import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
+import { ColaboradorDetalheComponent } from './components/cadastros/colaborador/colaborador-detalhe/colaborador-detalhe.component';
+import { CompraRequisicaoComponent } from './components/compras/compra-requisicao/compra-requisicao.component';
+import { CompraTipoRequisicaoComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao.component';
+import { CompraTipoRequisicaoDetalheComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao-detalhe/compra-tipo-requisicao-detalhe.component';
+import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-requisicao/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
+
+
 
 
 /* imports dos Modulos do PrimeNG - https://www.primefaces.org/primeng */
@@ -36,10 +42,7 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FileUploadModule} from 'primeng/fileupload';
 import {GrowlModule} from 'primeng/growl';
-import { CompraRequisicaoComponent } from './components/compras/compra-requisicao/compra-requisicao.component';
-import { CompraTipoRequisicaoComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao.component';
-import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
-import { CompraTipoRequisicaoDetalheComponent } from './components/compras/compra-tipo-requisicao-detalhe/compra-tipo-requisicao-detalhe.component';
+import { ObjectUtils } from 'primeng/components/utils/objectutils';
 
 
 
@@ -88,7 +91,8 @@ import { CompraTipoRequisicaoDetalheComponent } from './components/compras/compr
   ],
 
   providers: [ConfirmationService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } /*declarando o privide do HTTP_INTERCEPETOR para a Class jwtInterceptor*/
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }, /*declarando o provide do HTTP_INTERCEPETOR para a Class jwtInterceptor*/
+    ObjectUtils
   ],
   bootstrap: [AppComponent]
 })

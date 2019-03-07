@@ -15,35 +15,45 @@
 
   <!-- Header-Cabeçalho-->
   <!--se o Usuario não estiver Logado o Menu de opções não estara visivel ate que o mesmo faço o login-->
-  <div class="ui-g-12 ui-md-2">
-
-    <p-accordion *ngIf="loginService.getUsuarioLogado()">
-      <p-accordionTab header="Cadastros">
-        <nav>
+  <div class="ui-g-12 ui-md-3">
+    <nav>
+      <p-accordion > <!-- *ngIf="loginService.getUsuarioLogado()" -->
+        <p-accordionTab header="Cadastros">
           <ul>
-
             <li><a routerLink="/cargos">Cargos</a></li>
             <li><a routerLink="/colaborador">Colaborador</a></li>
-
           </ul>
+        </p-accordionTab>
 
-        </nav>
-      </p-accordionTab>
+        <p-accordionTab header="Compras">
+          <ul>
+            <li><a routerLink="/compra-requisicao">Requisicao</a></li>
+            
+            <li><a routerLink="/compra-tipo-requisicao">Tipos de Requisições</a></li>
+          </ul>
+        </p-accordionTab>
 
-      <p-accordionTab header="Fincanceiro">
-        Content 2
-      </p-accordionTab>
+        <p-accordionTab header="Estoque">
+          <button class="btn btn-primary">Estoque</button>
+        </p-accordionTab>
 
-      <p-accordionTab header="Comercial">
-        <button class="btn btn-primary">Salvar</button>
-      </p-accordionTab>
-    </p-accordion>
+        <p-accordionTab header="Financeiro">
+          <button class="btn btn-primary">Financeiro</button>
+        </p-accordionTab>
+
+        <p-accordionTab header="Vendas">
+          <button class="btn btn-primary">Vendas</button>
+        </p-accordionTab>
+
+      </p-accordion>
+
+    </nav>
 
   </div>
 
 
   <!-- Corpo da Pagina -->
-  <div class="ui-g-12 ui-md-10 ui-g-nopad" style="margin-top: 9px">
+  <div class="ui-g-12 ui-md-9 ui-g-nopad" style="margin-top: 9px">
 
     <!-- Tela Principal do Sistema-->
     <div class="ui-g-12 ui-g-nopad">
