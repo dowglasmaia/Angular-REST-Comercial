@@ -1,3 +1,61 @@
-<p>
-  compra-requisicao-detalhes works!
-</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+  <p-panel>
+    <p-header>
+      Requisição de Compra
+    </p-header>
+    <div class="ui-g">
+  
+      <!-- Tipo de Requisição -->
+      <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <span class="ui-float-label">
+          <p-autoComplete id="tipoReq" formControlName="compraTipoRequisicao" [suggestions]="filtroTipoRequisicao"
+            (completeMethod)="buscarTipoRequisicao($event)" emptyMessage="Nenhum Registro Encontrado" field="nome" >
+          </p-autoComplete>
+  
+          <label for="tipoReq">Tipo de Requisição </label>
+        </span>
+      </div>
+  
+      <!-- Colaborador -->
+      <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <span class="ui-float-label">
+          <p-autoComplete id="setor" formControlName="colaborador"  [suggestions]="filtroColaborador"
+            (completeMethod)=" buscarPorColaborador($event)" emptyMessage="Nenhum Registro Encontrado" field="pessoa.nome">
+          </p-autoComplete>
+  
+          <label for="setor">Colaborador </label>
+        </span>
+      </div>
+
+        <!-- Data  -->
+    <div class="ui-g-12 ui-md-6 ui-lg-4">
+      <span class="ui-float-label">
+        <p-calendar id="float-input" formControlName="dataRequisicao" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
+        <label for="float-input">Data</label>
+      </span>
+    </div>
+    
+   
+  
+      <div class="ui-lg-12 ui-md-12 ui-lg-12 botoesDetalhes">
+        <!-- Salvar -->
+      <!-- <p-button label="Salvar" (onClick)="salvar()"></p-button> -->
+  
+      <button pButton type="submit" label="Salvar" [disabled]="!formGroup.valid"></button>
+  
+        <!-- Cancelar - Retorna para Pagina de Listagem -->
+        <p-button label="Cancelar" (onClick)="retornar()"></p-button>
+      </div>
+  
+  
+  
+  
+    </div>
+  
+    <p-footer>
+      Footer content here
+    </p-footer>
+  </p-panel>
+  
+  </form>
+  

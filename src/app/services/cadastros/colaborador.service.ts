@@ -27,6 +27,13 @@ export class ColaboradorService {
 
   }
 
+   /* buscar Todos Por Nome */
+   getColaboradorPorNome(nome: string): Observable<Colaborador[]> {
+    return this.http.get<Colaborador[]>(this.url + 'lista/'+nome);
+
+  }
+
+
   /*Bascar por ID */
   getColaboradorId(id: number): Observable<Colaborador> {
     return this.http.get<Colaborador>(this.url + id);

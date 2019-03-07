@@ -43,7 +43,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FileUploadModule} from 'primeng/fileupload';
 import {GrowlModule} from 'primeng/growl';
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
-
+import {MenubarModule} from 'primeng/menubar';
+import {CalendarModule} from 'primeng/calendar';
 
 
 
@@ -87,7 +88,9 @@ import { ObjectUtils } from 'primeng/components/utils/objectutils';
     SplitButtonModule,
     AutoCompleteModule,
     FileUploadModule, // para fazer envio de arquivo para  servidor, no caso aqui, Fotos
-    GrowlModule
+    GrowlModule,
+    MenubarModule,
+    CalendarModule
   ],
 
   providers: [ConfirmationService,

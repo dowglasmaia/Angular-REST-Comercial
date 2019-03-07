@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 })
 export class CompraTipoRequisiacaoService {
 
-  private url = environment.urlBaseServidor + 'tipo/requisicao';
+  private url = environment.urlBaseServidor + 'tipo/requisicao/';
 
   constructor(
     private http: HttpClient) {

@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class CompraRequisaoService {
 
   /* URL do Servidor da Aplicalçao*/
-  private url = environment.urlBaseServidor + 'compra/requisicao';
+  private url = environment.urlBaseServidor + 'compra/requisicao/';
 
   constructor(
     private http: HttpClient) {

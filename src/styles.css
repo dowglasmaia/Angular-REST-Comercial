@@ -21,8 +21,15 @@
   
 .ui-inputtext {
     width: 100%;
+   
   }
 .ui-pPassword {
+    width: 100%;
+  }
+  .ui-float-label{
+    margin-top: 10px;
+  }
+  .ui-calendar{
     width: 100%;
   }
   
