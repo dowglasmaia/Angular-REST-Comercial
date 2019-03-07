@@ -1,3 +1,6 @@
+import { CompraTipoRequisicaoDetalheComponent } from './components/compras/compra-tipo-requisicao-detalhe/compra-tipo-requisicao-detalhe.component';
+import { CompraTipoRequisicaoComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao.component';
+
 /**
  * @author Dowglas maia
  * @email dowglasmaia@live.com
@@ -18,6 +21,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { ColaboradorComponent } from './components/cadastros/colaborador/colaborador.component';
 import { ColaboradorDetalheComponent } from './components/cadastros/colaborador-detalhe/colaborador-detalhe.component';
+import { CompraRequisicaoComponent } from './components/compras/compra-requisicao/compra-requisicao.component';
+import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
 
 
 
@@ -30,10 +35,22 @@ const routes: Routes = [
         { path: 'cargos', component: CargoComponent },
         { path: 'cargo/novo', component: CargoDetalheComponent },
         { path: 'cargo/:id', component: CargoDetalheComponent },
-        { path: 'nao-encontrado', component: NaoEncontradoComponent },
+
         { path: 'colaborador', component: ColaboradorComponent },
         { path: 'colaborador/novo', component: ColaboradorDetalheComponent },
         { path: 'colaborador/:id', component: ColaboradorDetalheComponent },
+
+        { path: 'compra-requisicao', component: CompraRequisicaoDetalhesComponent },
+        { path: 'compra-requisicao/novo', component: CompraRequisicaoComponent },      
+        { path: 'compra-requisicao/:id', component: CompraRequisicaoComponent },
+
+        { path: 'compra-tipo-requisicao', component: CompraTipoRequisicaoComponent },
+        { path: 'compra-tipo-requisicao/novo', component: CompraTipoRequisicaoDetalheComponent },      
+        { path: 'compra-tipo-requisicao/:id', component: CompraTipoRequisicaoComponent },
+
+        
+        { path: 'nao-encontrado', component: NaoEncontradoComponent },
+
     ]},
 
   { path: 'login', component: LoginComponent }

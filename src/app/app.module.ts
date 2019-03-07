@@ -39,6 +39,7 @@ import {GrowlModule} from 'primeng/growl';
 import { CompraRequisicaoComponent } from './components/compras/compra-requisicao/compra-requisicao.component';
 import { CompraTipoRequisicaoComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao.component';
 import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
+import { CompraTipoRequisicaoDetalheComponent } from './components/compras/compra-tipo-requisicao-detalhe/compra-tipo-requisicao-detalhe.component';
 
 
 
@@ -57,7 +58,8 @@ import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-r
     ColaboradorDetalheComponent,
     CompraRequisicaoComponent,
     CompraTipoRequisicaoComponent,
-    CompraRequisicaoDetalhesComponent
+    CompraRequisicaoDetalhesComponent,
+    CompraTipoRequisicaoDetalheComponent
   ],
 
   /* Declara os Imports no imports: []*/
