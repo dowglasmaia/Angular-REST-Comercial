@@ -36,6 +36,9 @@ import {SplitButtonModule} from 'primeng/splitbutton';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {FileUploadModule} from 'primeng/fileupload';
 import {GrowlModule} from 'primeng/growl';
+import { CompraRequisicaoComponent } from './components/compras/compra-requisicao/compra-requisicao.component';
+import { CompraTipoRequisicaoComponent } from './components/compras/compra-tipo-requisicao/compra-tipo-requisicao.component';
+import { CompraRequisicaoDetalhesComponent } from './components/compras/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
 
 
 
@@ -51,7 +54,10 @@ import {GrowlModule} from 'primeng/growl';
     HomeComponent,
     LoginComponent,
     ColaboradorComponent,
-    ColaboradorDetalheComponent
+    ColaboradorDetalheComponent,
+    CompraRequisicaoComponent,
+    CompraTipoRequisicaoComponent,
+    CompraRequisicaoDetalhesComponent
   ],
 
   /* Declara os Imports no imports: []*/
