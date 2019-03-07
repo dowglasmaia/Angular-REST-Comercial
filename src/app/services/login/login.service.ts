@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { Usuario } from './../../classes/cadastros/usuario';
+
 import { Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
+import { Usuario } from 'src/app/model/classes/usuario';
 
 
 @Injectable({

@@ -1,5 +1,6 @@
-import { VariaveisGlobais } from './../../classes/variaveis-globais';
+
 import { Component, OnInit } from '@angular/core';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 @Component({
   selector: 'app-home',

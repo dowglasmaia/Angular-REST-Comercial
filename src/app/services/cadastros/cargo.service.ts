@@ -1,8 +1,12 @@
+import { Cargo } from './../../model/classes/cargo';
+
+
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Cargo } from './../../classes/cadastros/cargo';
+
 
 import { environment } from 'src/environments/environment';
 

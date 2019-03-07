@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Setor } from 'src/app/classes/cadastros/setor';
+
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Setor } from 'src/app/model/classes/setor';
 
 @Injectable({
   providedIn: 'root'

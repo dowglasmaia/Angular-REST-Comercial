@@ -1,23 +1,29 @@
+import { Cargo } from './../../../model/classes/cargo';
+import { Colaborador } from './../../../model/classes/colaborador';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 
-import { VariaveisGlobais } from './../../../classes/variaveis-globais';
+
 import { ColaboradorService } from './../../../services/cadastros/colaborador.service';
-import { Colaborador } from '../../../classes/cadastros/colaborador.dto';
-import { Pessoa } from './../../../classes/cadastros/pessoa';
+
+
 import { PessoaService } from 'src/app/services/cadastros/pessoa.service';
 import { SetorService } from 'src/app/services/cadastros/setor.service';
 import { TipoColaboradorService } from 'src/app/services/cadastros/tipo-colaborador.service';
-import { Setor } from 'src/app/classes/cadastros/setor';
+
 import { CargoService } from 'src/app/services/cadastros/cargo.service';
-import { Cargo } from 'src/app/classes/cadastros/cargo';
-import { TipoColaborador } from 'src/app/classes/cadastros/tipo-colaborador';
+
+
 import { environment } from 'src/environments/environment';
-import { Usuario } from 'src/app/classes/cadastros/usuario';
+
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { Pessoa } from 'src/app/model/classes/pessoa';
+import { Setor } from 'src/app/model/classes/setor';
+import { TipoColaborador } from 'src/app/model/classes/tipo-colaborador';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 @Component({
   selector: 'app-colaborador-detalhe',

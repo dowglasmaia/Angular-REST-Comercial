@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { VariaveisGlobais } from './classes/variaveis-globais';
+
 import { LoginService } from './services/login/login.service';
+import { VariaveisGlobais } from './model/variaveis-globais';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,8 @@
+import { Colaborador } from './../../model/classes/colaborador';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Colaborador } from '../../classes/cadastros/colaborador.dto';
+
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 

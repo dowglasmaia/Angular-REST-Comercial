@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Usuario } from './../../classes/cadastros/usuario';
+
 import { LoginService } from './../../services/login/login.service';
-import { VariaveisGlobais } from './../../classes/variaveis-globais';
+
 import { Router } from '@angular/router';
+import { Usuario } from 'src/app/model/classes/usuario';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 @Component({
   selector: 'app-login',

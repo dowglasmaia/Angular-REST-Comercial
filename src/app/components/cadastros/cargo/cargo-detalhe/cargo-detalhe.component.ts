@@ -1,10 +1,12 @@
-import { VariaveisGlobais } from './../../../../classes/variaveis-globais';
+import { Cargo } from './../../../../model/classes/cargo';
+
 import { CargoService } from './../../../../services/cadastros/cargo.service';
-import { Cargo } from './../../../../classes/cadastros/cargo';
+
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 @Component({
   selector: 'app-cargo-detalhe',

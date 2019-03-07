@@ -1,10 +1,11 @@
+import { Colaborador } from './../../../model/classes/colaborador';
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 
 
-import { Colaborador } from '../../../classes/cadastros/colaborador.dto';
-import { VariaveisGlobais } from './../../../classes/variaveis-globais';
+
 import { ColaboradorService } from 'src/app/services/cadastros/colaborador.service';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 
 

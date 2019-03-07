@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { TipoColaborador } from 'src/app/model/classes/tipo-colaborador';
 
-import { TipoColaborador } from 'src/app/classes/cadastros/tipo-colaborador';
+
 
 @Injectable({
   providedIn: 'root'

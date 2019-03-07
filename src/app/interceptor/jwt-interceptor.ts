@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Usuario } from './../classes/cadastros/usuario';
+import { Usuario } from '../model/classes/usuario';
+
 
 /* Classe Responsavel por Interceptar Todas as Requisições que serão invadas para o servidor */
 

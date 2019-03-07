@@ -1,10 +1,11 @@
+import { Cargo } from './../../../model/classes/cargo';
 import { Component, OnInit } from '@angular/core';
 
-import { VariaveisGlobais } from './../../../classes/variaveis-globais';
-import { Cargo } from './../../../classes/cadastros/cargo';
+
 import { CargoService } from 'src/app/services/cadastros/cargo.service';
 
 import { ConfirmationService } from 'primeng/api';
+import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 
 @Component({
   selector: 'app-cargo',
