@@ -1,3 +1,4 @@
+import { CompraReqCotacaoDetalhe } from './compra-req-cotacao-detalhe';
 import { Colaborador } from './colaborador';
 import { CompraTipoRequisicao } from './compra-tipo-requisicao';
 
@@ -6,4 +7,5 @@ export class CompraRequisicao {
 	dataRequisicao: string;
 	colaborador: Colaborador;
 	compraTipoRequisicao: CompraTipoRequisicao;
+	listaCompraRequisicaoDetalhes: CompraReqCotacaoDetalhe[];
 }

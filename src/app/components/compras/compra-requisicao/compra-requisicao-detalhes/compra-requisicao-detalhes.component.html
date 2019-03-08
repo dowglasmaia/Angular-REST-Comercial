@@ -4,58 +4,97 @@
       Requisição de Compra
     </p-header>
     <div class="ui-g">
-  
+
       <!-- Tipo de Requisição -->
       <div class="ui-g-12 ui-md-6 ui-lg-6">
         <span class="ui-float-label">
           <p-autoComplete id="tipoReq" formControlName="compraTipoRequisicao" [suggestions]="filtroTipoRequisicao"
-            (completeMethod)="buscarTipoRequisicao($event)" emptyMessage="Nenhum Registro Encontrado" field="nome" >
+            (completeMethod)="buscarTipoRequisicao($event)" emptyMessage="Nenhum Registro Encontrado" field="nome">
           </p-autoComplete>
-  
+
           <label for="tipoReq">Tipo de Requisição </label>
         </span>
       </div>
-  
+
       <!-- Colaborador -->
       <div class="ui-g-12 ui-md-6 ui-lg-6">
         <span class="ui-float-label">
-          <p-autoComplete id="setor" formControlName="colaborador"  [suggestions]="filtroColaborador"
-            (completeMethod)=" buscarPorColaborador($event)" emptyMessage="Nenhum Registro Encontrado" field="pessoa.nome">
+          <p-autoComplete id="setor" formControlName="colaborador" [suggestions]="filtroColaborador"
+            (completeMethod)=" buscarPorColaborador($event)" emptyMessage="Nenhum Registro Encontrado"
+            field="pessoa.nome">
           </p-autoComplete>
-  
+
           <label for="setor">Colaborador </label>
         </span>
       </div>
 
-        <!-- Data  -->
-    <div class="ui-g-12 ui-md-6 ui-lg-4">
-      <span class="ui-float-label">
-        <p-calendar id="float-input" formControlName="dataRequisicao" dateFormat="yy-mm-dd" [showIcon]="true"></p-calendar>
-        <label for="float-input">Data</label>
-      </span>
+      <!-- Data  -->
+      <div class="ui-g-12 ui-md-6 ui-lg-4">
+        <span class="ui-float-label">
+          <p-calendar id="float-input" formControlName="dataRequisicao" dateFormat="yy-mm-dd" [showIcon]="true">
+          </p-calendar>
+          <label for="float-input">Data</label>
+        </span>
+      </div>
+
+
+      <!-- Tabela de Datalhes da Requisiçao-->
+      <p-table [columns]="cols" [value]="compraRequisicao.listaCompraRequisicaoDetalhes" selectionMode="single" [(selection)]="detalheSelecionada"
+        dataKey="id" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [paginator]="true"
+        [rows]="10">
+
+        <ng-template pTemplate="caption">
+         <!-- Butões -->
+         <div class="botoesDetalhes">
+          <p-button icon="pi pi-plus" > </p-button><!-- Novo -->
+          <p-button icon="pi pi-pencil" [disabled]="botoesDesabilitado"></p-button>
+          <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button>
+          <!-- Excluir -->
+        </div>
+        </ng-template>
+
+
+        <!-- Cabeçalho da Tabela-->
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns">
+              {{col.header}}
+            </th>
+          </tr>
+        </ng-template>
+
+        <!-- Corpo da Tabela-->
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of columns">
+              {{resolveFieldData(rowData, col.field)}}
+            </td>
+          </tr>
+        </ng-template>
+
+        <!-- Roda-pé da Tabela-->
+        <ng-template pTemplate="summary">
+          <div style="text-align: left">
+            
+          </div>
+        </ng-template>
+      </p-table>
+
+
+
+
     </div>
+
+    <p-footer>
     
-   
-  
       <div class="ui-lg-12 ui-md-12 ui-lg-12 botoesDetalhes">
         <!-- Salvar -->
-      <!-- <p-button label="Salvar" (onClick)="salvar()"></p-button> -->
-  
-      <button pButton type="submit" label="Salvar" [disabled]="!formGroup.valid"></button>
-  
+        <button pButton type="submit" label="Salvar" [disabled]="!formGroup.valid"></button>
+
         <!-- Cancelar - Retorna para Pagina de Listagem -->
         <p-button label="Cancelar" (onClick)="retornar()"></p-button>
       </div>
-  
-  
-  
-  
-    </div>
-  
-    <p-footer>
-      Footer content here
     </p-footer>
   </p-panel>
-  
-  </form>
-  
+
+</form>

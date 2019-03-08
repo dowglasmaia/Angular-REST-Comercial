@@ -71,7 +71,7 @@ export class CompraRequisicaoComponent implements OnInit {
   onRowUnselect(event) {
     this.botoesDesabilitado = true;
   }
-  /* /fim */
+  
 
   /* Retorna o Requisicao selecionado*/
   getIdRequisicao() {
