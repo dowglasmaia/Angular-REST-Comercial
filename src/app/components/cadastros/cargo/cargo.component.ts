@@ -67,6 +67,7 @@ export class CargoComponent implements OnInit {
 
   /* Retorna o cargo selecionado com*/
   getIdCargo() {
+    console.log(this.cargoSelecionado);
     return this.cargoSelecionado == null ? null : this.cargoSelecionado.id;
   }
 

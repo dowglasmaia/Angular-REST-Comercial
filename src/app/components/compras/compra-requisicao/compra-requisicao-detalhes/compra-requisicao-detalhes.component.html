@@ -38,19 +38,19 @@
       </div>
 
 
-      <!-- Tabela de Datalhes da Requisiçao-->
-      <p-table [columns]="cols" [value]="compraRequisicao.listaCompraRequisicaoDetalhes" selectionMode="single" [(selection)]="detalheSelecionada"
-        dataKey="id" (onRowSelect)="onRowSelect($event)" (onRowUnselect)="onRowUnselect($event)" [paginator]="true"
-        [rows]="10">
+      <!--============ Tabela de Datalhes da Requisiçao ==============-->
+      <p-table [columns]="cols" [value]="compraRequisicao.listaCompraRequisicaoDetalhes" selectionMode="single"
+        [(selection)]="detalheSelecionada" dataKey="id" (onRowSelect)="onRowSelect($event)"
+        (onRowUnselect)="onRowUnselect($event)" [paginator]="true" [rows]="10">
 
         <ng-template pTemplate="caption">
-         <!-- Butões -->
-         <div class="botoesDetalhes">
-          <p-button icon="pi pi-plus" > </p-button><!-- Novo -->
-          <p-button icon="pi pi-pencil" [disabled]="botoesDesabilitado"></p-button>
-          <p-button icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button>
-          <!-- Excluir -->
-        </div>
+          <!-- Butões -->
+          <div class="botoesDetalhes">
+            <p-button type="button" icon="pi pi-plus" (click)="showDialog()"> </p-button><!-- Novo -->
+            <p-button type="button" icon="pi pi-pencil" [disabled]="botoesDesabilitado"></p-button>
+            <p-button type="button" icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button>
+            <!-- Excluir -->
+          </div>
         </ng-template>
 
 
@@ -75,26 +75,59 @@
         <!-- Roda-pé da Tabela-->
         <ng-template pTemplate="summary">
           <div style="text-align: left">
-            
+
           </div>
         </ng-template>
       </p-table>
-
-
-
-
+      <!-- /=== Tabela de Datalhes da Requisiçao ===-->
     </div>
 
     <p-footer>
-    
       <div class="ui-lg-12 ui-md-12 ui-lg-12 botoesDetalhes">
         <!-- Salvar -->
         <button pButton type="submit" label="Salvar" [disabled]="!formGroup.valid"></button>
 
         <!-- Cancelar - Retorna para Pagina de Listagem -->
-        <p-button label="Cancelar" (onClick)="retornar()"></p-button>
+        <button pButton type="button" label="Cancelar" (onClick)="retornar()"></button>
       </div>
     </p-footer>
   </p-panel>
 
 </form>
+
+<!-- Modal -->
+<p-dialog [(visible)]="display" [width]="600" modal="true">
+  <p-header>
+   Novo Detalhes da Requisição
+  </p-header>
+  <div class="ui-g">
+    <form>
+      <!-- Colaborador -->
+      <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <span class="ui-float-label">
+          <p-autoComplete id="setor"  [suggestions]="filtroProduto" [(ngModel)]="detalheSelecionada.produto"
+            (completeMethod)=" buscarPorProduto($event)" emptyMessage="Nenhum Registro Encontrado" field="nome">
+          </p-autoComplete>
+
+          <label for="setor">Produto </label>
+        </span>
+      </div>
+
+      <!-- Quantidade -->
+      <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <span class="ui-float-label">
+          <p-spinner id="qtda" size="50" [min]="0" [step]="0.01" decimalSeparato ="," thousandSeparator= "." [(ngModel)]="detalheSelecionada.quantidade" ></p-spinner>
+          <label for="qtda">Quantidade</label>
+        </span>
+      </div>
+      
+    </form>
+  </div>
+  <p-footer>
+    <!-- Salvar -->
+    <button pButton type="submit" label="Salvar"></button>
+
+    <!-- Cancelar - Retorna para Pagina de Listagem -->
+    <button pButton type="button" label="Cancelar"></button>
+  </p-footer>
+</p-dialog>

@@ -45,6 +45,8 @@ import {GrowlModule} from 'primeng/growl';
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
 import {MenubarModule} from 'primeng/menubar';
 import {CalendarModule} from 'primeng/calendar';
+import {DialogModule} from 'primeng/dialog';
+import {SpinnerModule} from 'primeng/spinner';
 
 
 
@@ -90,7 +92,9 @@ import {CalendarModule} from 'primeng/calendar';
     FileUploadModule, // para fazer envio de arquivo para  servidor, no caso aqui, Fotos
     GrowlModule,
     MenubarModule,
-    CalendarModule
+    CalendarModule,
+    DialogModule,
+    SpinnerModule
   ],
 
   providers: [ConfirmationService,
