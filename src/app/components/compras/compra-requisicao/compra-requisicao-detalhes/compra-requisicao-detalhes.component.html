@@ -93,44 +93,42 @@
     </p-footer>
   </p-panel>
 
-  <!-- Modal -->
-  <p-dialog [(visible)]="display" [width]="600" modal="true" [contentStyle]="{'overflow':'visible'}">
-    <p-header>
-      Novo Detalhes da Requisição
-    </p-header>
-    <div class="ui-g">
-      <form>
-        <!-- Produto -->
-        <div class="ui-g-12 ui-md-6 ui-lg-6">
-          <span class="ui-float-label">
-            <p-autoComplete id="col" [suggestions]="filtroProduto" [(ngModel)]="detalheSelecionada.produto"   
-                field="descricao"  (completeMethod)=" buscarPorProduto($event)" emptyMessage="Nenhum Registro Encontrado" >
-            </p-autoComplete>
-
-            <label for="col">Produto </label>
-          </span>
-        </div>
-
-        <!-- Quantidade -->
-        <div class="ui-g-12 ui-md-6 ui-lg-3">
-          <span class="ui-float-label">
-            <p-spinner id="qtda" size="50" [min]="0" [step]="0.01" [(ngModel)]="detalheSelecionada.quantidade"></p-spinner>
-            <label for="qtda">Quantidade</label>
-          </span>
-        </div>
-
-      </form>
-    </div>
-    
-    <p-footer>
-      <!-- incluir Produto -->
-      <button pButton type="button" label="Incluir" (click)="incluirProduto()" 
-            icon="pi pi-plus-circle" class="ui-button-success"></button>
-
-      <!-- Cancelar - Retorna para Pagina de Listagem -->
-      <button pButton type="button" label="Cancelar" (click)="cancelaInclusao()" 
-            icon="pi pi-times-circle" class="ui-button-warning" ></button>
-    </p-footer>
-  </p-dialog>
-
+ 
 </form>
+
+ <!-- Modal -->
+ <p-dialog [(visible)]="display" [width]="600" modal="true" [contentStyle]="{'overflow':'visible'}">
+  <p-header>
+    Novo Detalhes da Requisição
+  </p-header>
+  <div class="ui-g">   
+      <!-- Produto -->
+      <div class="ui-g-12 ui-md-6 ui-lg-6">
+        <span class="ui-float-label">
+          <p-autoComplete id="col" [suggestions]="filtroProduto" [(ngModel)]="detalheSelecionada.produto"  name="produto" 
+              field="descricao"  (completeMethod)=" buscarPorProduto($event)" emptyMessage="Nenhum Registro Encontrado" >
+          </p-autoComplete>
+
+          <label for="col">Produto </label>
+        </span>
+      </div>
+
+      <!-- Quantidade -->
+      <div class="ui-g-12 ui-md-6 ui-lg-3">
+        <span class="ui-float-label">
+          <p-spinner id="qtda" size="50" [min]="0" [step]="0.01" [(ngModel)]="detalheSelecionada.quantidade"></p-spinner>
+          <label for="qtda">Quantidade</label>
+        </span>
+      </div>
+    </div>
+  
+  <p-footer>
+    <!-- incluir Produto -->
+    <button pButton type="button" label="Incluir" (click)="incluirProduto()" 
+          icon="pi pi-plus-circle" class="ui-button-success"></button>
+
+    <!-- Cancelar - Retorna para Pagina de Listagem -->
+    <button pButton type="button" label="Cancelar" (click)="cancelaInclusao()" 
+          icon="pi pi-times-circle" class="ui-button-warning" ></button>
+  </p-footer>
+</p-dialog>
