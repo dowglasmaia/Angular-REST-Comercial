@@ -17,10 +17,12 @@ import { CargoService } from 'src/app/services/cadastros/cargo.service';
 import { environment } from 'src/environments/environment';
 
 import { Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
+
 import { Pessoa } from 'src/app/model/classes/pessoa';
 import { Setor } from 'src/app/model/classes/setor';
 import { TipoColaborador } from 'src/app/model/classes/tipo-colaborador';
 import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-colaborador-detalhe',
@@ -56,7 +58,8 @@ export class ColaboradorDetalheComponent implements OnInit {
     private setorService: SetorService,
     private tipoColService: TipoColaboradorService,
     private cargoService: CargoService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    
   ) { }
 
   ngOnInit() {
@@ -159,6 +162,7 @@ export class ColaboradorDetalheComponent implements OnInit {
   }
 
   /*
+  Realizar Imagem depois - n- 06
     errorUpload(event) {
       const msg = (event.error).message;
       this.global.mostraMsg(this.global.error, 'Ocorreu um Error', msg);

@@ -94,7 +94,8 @@ import {SpinnerModule} from 'primeng/spinner';
     MenubarModule,
     CalendarModule,
     DialogModule,
-    SpinnerModule
+    SpinnerModule,
+    ReactiveFormsModule
   ],
 
   providers: [ConfirmationService,
