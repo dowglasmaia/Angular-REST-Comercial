@@ -11,9 +11,6 @@ import { Produto } from './../../model/classes/produto';
 })
 export class ProdutoService {
 
-
-  private produtos: Produto[];
-
   private url = environment.urlBaseServidor + 'produtos/';
 
   constructor(
@@ -27,9 +24,9 @@ export class ProdutoService {
 
   }
 
-  /* buscar por nome*/
-  getProdutosPorNome(nome: string): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this.url + 'lista/'+ nome);
+ /* Buscar Produto por descricao, Usando parametros*/
+  getProdutosPorDescricao(descricao: string): Observable<Produto[]> {
+    return this.http.get<Produto[]>(`${environment.urlBaseServidor}produtos/lista?descricao=${descricao}`);
 
   }
 
@@ -43,6 +40,8 @@ export class ProdutoService {
     return this.http.post<Produto>(this.url, produto, environment.httpOptions);
 
   }
+  
+  
 
   /* Excluir -  Retonar o Objeto Vazio*/
   excluir(id: number): Observable<{}> {

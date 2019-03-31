@@ -1,8 +1,8 @@
-import { CompraRequisicaoDetalhe } from './../../../../model/classes/compra-requisicao-detalhe';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
+
 
 import { CompraRequisaoService } from './../../../../services/compras/compra-requisao.service';
 import { CompraTipoRequisiacaoService } from './../../../../services/compras/compra-tipo-requisiacao.service';
@@ -14,7 +14,8 @@ import { VariaveisGlobais } from 'src/app/model/variaveis-globais';
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
 import { Produto } from 'src/app/model/classes/produto';
 import { ProdutoService } from 'src/app/services/compras/produto.service';
-import { CompraReqCotacaoDetalhe } from './../../../../model/classes/compra-req-cotacao-detalhe';
+import { CompraRequisicaoDetalhe } from './../../../../model/classes/compra-requisicao-detalhe';
+
 
 @Component({
   selector: 'app-compra-requisicao-detalhes',
@@ -24,12 +25,14 @@ import { CompraReqCotacaoDetalhe } from './../../../../model/classes/compra-req-
 export class CompraRequisicaoDetalhesComponent implements OnInit {
 
   /* Colunas da Tabela de Detalhes*/
+
+  
   cols: any[];
   display: boolean = false;
   filtroProduto: Produto[];
 
   detalheSelecionada: CompraRequisicaoDetalhe;
-  botoesDesabilitado: boolean = true; 
+  botoesDesabilitado: boolean = true;
 
   /*  ===  */
 
@@ -39,6 +42,7 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
 
   formGroup: FormGroup;
 
+  /* =========== Contrutor =========== */
   constructor(
     private compraRequisicaoService: CompraRequisaoService,
     private tipoRequisicaoService: CompraTipoRequisiacaoService,
@@ -53,6 +57,7 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.global.tituloJanela = 'Cadastro de Requisiçao!';
 
     /* incluir os Dados do Formulario*/
     this.formGroup = this.formBuilder.group({
@@ -68,10 +73,9 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
       { field: 'quantidade', header: 'Qtda' },
       { field: 'quantidadeCotada', header: 'Qtda Cotada' },
       { field: 'itemCotado', header: 'Item Cotado' },
-    ];   
+    ];
 
-    /* =========== =========== */
-    this.global.tituloJanela = 'Cadastro de Requisiçao!';
+    /* =========== Instanciando Objs =========== */
     this.compraRequisicao = new CompraRequisicao();
     this.detalheSelecionada = new CompraRequisicaoDetalhe();
 
@@ -94,9 +98,9 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
 
 
   /* Metodo Para Resolver a Questão  dos campos com vinculações a outros objetos*/
-  resolveFieldData(data, field){
+  resolveFieldData(data, field) {
     return this.objectUtils.resolveFieldData(data, field);
-   }
+  }
 
   //Retornar
   retornar() {
@@ -153,8 +157,8 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
   }
 
   /* Buscar produto */
-  buscarPorProduto(event){
-    this.produtoService.getProdutosPorNome(event.query).subscribe(
+  buscarPorProduto(event) {
+    this.produtoService.getProdutosPorDescricao(event.query).subscribe(
       obj => {
         this.filtroProduto = obj;
       }, error => {
@@ -165,7 +169,18 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
   /* Chama modal*/
   showDialog() {
     this.display = true;
-}
- 
+  }
+
+  /* Cancelar inclusão*/
+  cancelaInclusao() {
+    this.display = false;
+  }
+
+  /* inclusão do Produto*/
+  incluirProduto() {
+    this.compraRequisicao.listaCompraRequisicaoDetalhes.push(this.detalheSelecionada);
+    this.display = false;
+  }
+
 
 }
