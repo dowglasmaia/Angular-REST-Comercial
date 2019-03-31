@@ -1,4 +1,4 @@
-import { CompraReqCotacaoDetalhe } from './compra-req-cotacao-detalhe';
+import { CompraRequisicaoDetalhesComponent } from './../../components/compras/compra-requisicao/compra-requisicao-detalhes/compra-requisicao-detalhes.component';
 import { Colaborador } from './colaborador';
 import { CompraTipoRequisicao } from './compra-tipo-requisicao';
 
@@ -7,5 +7,5 @@ export class CompraRequisicao {
 	dataRequisicao: string;
 	colaborador: Colaborador;
 	compraTipoRequisicao: CompraTipoRequisicao;
-	listaCompraRequisicaoDetalhes: CompraReqCotacaoDetalhe[];
+	listaCompraRequisicaoDetalhes: CompraRequisicaoDetalhesComponent[];
 }

@@ -82,7 +82,8 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
       this.compraRequisicaoService.getCompraRequisicaoId(parseInt(id, 0)).subscribe(
         obj => {
           this.compraRequisicao = obj;
-          console.log(this.compraRequisicao)
+
+          console.log(this.compraRequisicao);
           /* Vinculando o FormGroup com o Objeto Colaborador*/
           this.formGroup.patchValue(this.compraRequisicao);
         }, error => {
