@@ -29,7 +29,7 @@ export class ColaboradorService {
 
    /* buscar Todos Por Nome */
    getColaboradorPorNome(nome: string): Observable<Colaborador[]> {
-    return this.http.get<Colaborador[]>(this.url + 'lista/'+nome);
+    return this.http.get<Colaborador[]>(`${environment.urlBaseServidor}colaboradores/lista?nome=${nome}`);
 
   }
 

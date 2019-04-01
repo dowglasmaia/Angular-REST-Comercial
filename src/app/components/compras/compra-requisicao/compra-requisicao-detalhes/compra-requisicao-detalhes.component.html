@@ -20,8 +20,7 @@
       <div class="ui-g-12 ui-md-6 ui-lg-6">
         <span class="ui-float-label">
           <p-autoComplete id="setor" formControlName="colaborador" [suggestions]="filtroColaborador"
-            (completeMethod)=" buscarPorColaborador($event)" emptyMessage="Nenhum Registro Encontrado"
-            field="pessoa.nome">
+            (completeMethod)=" buscarPorColaborador($event)" emptyMessage="Nenhum Registro Encontrado" field="nome">
           </p-autoComplete>
 
           <label for="setor">Colaborador </label>
@@ -40,14 +39,16 @@
 
       <!--============ Tabela de Datalhes da Requisiçao ==============-->
       <p-table [columns]="cols" [value]="compraRequisicao.listaCompraRequisicaoDetalhes" selectionMode="single"
-        [(selection)]="detalheSelecionada" dataKey="id" (onRowSelect)="onRowSelect($event)"
+        [(selection)]="detalheSelecionada" dataKey="" (onRowSelect)="onRowSelect($event)"
         (onRowUnselect)="onRowUnselect($event)" [paginator]="true" [rows]="10">
 
         <ng-template pTemplate="caption">
           <!-- Butões -->
           <div class="botoesDetalhes">
-            <p-button type="button" icon="pi pi-external-link" (click)="showDialog()"> </p-button><!-- Novo - Chama o modal -->
-            <p-button type="button" icon="pi pi-pencil" [disabled]="botoesDesabilitado" (click)="showDialog()"></p-button>
+            <p-button type="button" icon="pi pi-plus" (click)="novoDetalhe()"> </p-button>
+            <!-- Novo - Chama o modal -->
+            <p-button type="button" icon="pi pi-pencil" (click)="editarDetalhe()">
+            </p-button>
             <p-button type="button" icon="pi pi-trash" [disabled]="botoesDesabilitado" (onClick)="excluir()"></p-button>
             <!-- Excluir -->
           </div>
@@ -64,8 +65,8 @@
         </ng-template>
 
         <!-- Corpo da Tabela-->
-        <ng-template pTemplate="body" let-rowData let-columns="columns">
-          <tr [pSelectableRow]="rowData">
+        <ng-template pTemplate="body" let-rowData let-columns="columns" let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="rowData" [pSelectableRowIndex]="rowIndex">
             <td *ngFor="let col of columns">
               {{resolveFieldData(rowData, col.field)}}
             </td>
@@ -93,42 +94,42 @@
     </p-footer>
   </p-panel>
 
- 
+
 </form>
 
- <!-- Modal -->
- <p-dialog [(visible)]="display" [width]="600" modal="true" [contentStyle]="{'overflow':'visible'}">
+<!-- Modal -->
+<p-dialog [(visible)]="display" [width]="600" modal="true" [contentStyle]="{'overflow':'visible'}">
   <p-header>
     Novo Detalhes da Requisição
   </p-header>
-  <div class="ui-g">   
-      <!-- Produto -->
-      <div class="ui-g-12 ui-md-6 ui-lg-6">
-        <span class="ui-float-label">
-          <p-autoComplete id="col" [suggestions]="filtroProduto" [(ngModel)]="detalheSelecionada.produto"  name="produto" 
-              field="descricao"  (completeMethod)=" buscarPorProduto($event)" emptyMessage="Nenhum Registro Encontrado" >
-          </p-autoComplete>
+  <div class="ui-g">
+    <!-- Produto -->
+    <div class="ui-g-12 ui-md-6 ui-lg-6">
+      <span class="ui-float-label">
+        <p-autoComplete id="col" [suggestions]="filtroProduto" (completeMethod)=" buscarPorProduto($event)"
+          emptyMessage="Nenhum Registro Encontrado" field="descricao" [(ngModel)]="detalheSelecionada.produto">
+        </p-autoComplete>
 
-          <label for="col">Produto </label>
-        </span>
-      </div>
-
-      <!-- Quantidade -->
-      <div class="ui-g-12 ui-md-6 ui-lg-3">
-        <span class="ui-float-label">
-          <p-spinner id="qtda" size="50" [min]="0" [step]="0.01" [(ngModel)]="detalheSelecionada.quantidade"></p-spinner>
-          <label for="qtda">Quantidade</label>
-        </span>
-      </div>
+        <label for="col">Produto </label>
+      </span>
     </div>
-  
+
+    <!-- Quantidade -->
+    <div class="ui-g-12 ui-md-6 ui-lg-3">
+      <span class="ui-float-label">
+        <p-spinner id="qtda" size="50" [min]="0" [step]="0.01" [(ngModel)]="detalheSelecionada.quantidade"></p-spinner>
+        <label for="qtda">Quantidade</label>
+      </span>
+    </div>
+  </div>
+
   <p-footer>
     <!-- incluir Produto -->
-    <button pButton type="button" label="Incluir" (click)="incluirProduto()" 
-          icon="pi pi-plus-circle" class="ui-button-success"></button>
+    <button pButton type="button" label="Incluir" (click)="incluirProduto()" icon="pi pi-plus-circle"
+      class="ui-button-success"></button>
 
     <!-- Cancelar - Retorna para Pagina de Listagem -->
-    <button pButton type="button" label="Cancelar" (click)="cancelaInclusao()" 
-          icon="pi pi-times-circle" class="ui-button-warning" ></button>
+    <button pButton type="button" label="Cancelar" (click)="cancelaInclusao()" icon="pi pi-times-circle"
+      class="ui-button-warning"></button>
   </p-footer>
 </p-dialog>

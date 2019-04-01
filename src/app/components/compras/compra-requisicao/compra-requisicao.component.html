@@ -24,8 +24,8 @@
   </ng-template>
 
   <!-- Corpo da Tabela-->
-  <ng-template pTemplate="body" let-rowData let-columns="columns">
-    <tr [pSelectableRow]="rowData">
+  <ng-template pTemplate="body" let-rowData let-columns="columns" >
+    <tr [pSelectableRow]="rowData" >
       <td *ngFor="let col of columns">
         {{resolveFieldData(rowData, col.field)}}
       </td>

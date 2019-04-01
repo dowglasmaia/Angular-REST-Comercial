@@ -25,13 +25,13 @@ import { CompraRequisicaoDetalhe } from './../../../../model/classes/compra-requ
 export class CompraRequisicaoDetalhesComponent implements OnInit {
 
   /* Colunas da Tabela de Detalhes*/
-
-  
   cols: any[];
+  detalheSelecionada: CompraRequisicaoDetalhe;
+  indiceSelecionado: number;  // pega o indice selesiona na tabela, para que possamos realizar as transações de Save ou update.
+
   display: boolean = false;
   filtroProduto: Produto[];
 
-  detalheSelecionada: CompraRequisicaoDetalhe;
   botoesDesabilitado: boolean = true;
 
   /*  ===  */
@@ -65,7 +65,7 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
       'colaborador': new FormControl('', Validators.required),
       'compraTipoRequisicao': new FormControl('', Validators.required),
       'dataRequisicao': new FormControl('', Validators.required),
-    })
+    });
 
     /* =========== Detalhes da Cotação =========== */
     this.cols = [
@@ -149,11 +149,12 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
 
   /* Eventos ao selecionar uma coluna da tabela */
   onRowSelect(event) {
-    this.botoesDesabilitado = false;
+    this.indiceSelecionado = event.index;
+    // this.botoesDesabilitado = false;
   }
 
   onRowUnselect(event) {
-    this.botoesDesabilitado = true;
+    // this.botoesDesabilitado = true;
   }
 
   /* Buscar produto */
@@ -166,8 +167,14 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
       });
   }
 
-  /* Chama modal*/
-  showDialog() {
+  /* Chama modal - e Instancia um novo detalhe*/
+  novoDetalhe() {  
+    this.detalheSelecionada = new CompraRequisicaoDetalhe();
+    this.display = true;
+  }
+
+  /* Chama modal - com o Produto selecioando*/
+  editarDetalhe() {
     this.display = true;
   }
 
@@ -178,8 +185,13 @@ export class CompraRequisicaoDetalhesComponent implements OnInit {
 
   /* inclusão do Produto*/
   incluirProduto() {
-    this.compraRequisicao.listaCompraRequisicaoDetalhes.push(this.detalheSelecionada);
-    this.display = false;
+    if (this.detalheSelecionada.id == null) {
+         this.compraRequisicao.listaCompraRequisicaoDetalhes.push(this.detalheSelecionada);  
+         this.display = false;
+    } else {
+      this.compraRequisicao.listaCompraRequisicaoDetalhes[this.indiceSelecionado] = this.detalheSelecionada;    
+      this.display = false;
+    }
   }
 
 
